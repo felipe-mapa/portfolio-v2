@@ -8,10 +8,9 @@ import {
     ScrollRestoration,
 } from "@remix-run/react";
 import { Footer } from "./components/Footer/Footer";
-import NavBar from "./components/NavBar/NavBar";
+import { Sidebar } from "./components/Sidebar/Sidebar";
 import { ThemeProvider, useThemeContext } from "./contexts/ThemeProvider";
 
-import type { ReactNode } from "react";
 import type { MetaFunction } from "@remix-run/node";
 import type { WithChildrenProp } from "./models/types";
 
@@ -53,7 +52,7 @@ const App = () => (
         <WithTheme>
             <Box h="screenHeight" backgroundColor="mainBackgroundColor">
                 <Flex height="calc(100vh - 24px)">
-                    <NavBar />
+                    <Sidebar />
                     <Outlet />
                 </Flex>
                 <Footer />
