@@ -4,7 +4,10 @@ export type ExtendedTheme = Record<string, any>;
 
 interface CostumeColors {
     mainBackgroundColor: string;
+    // Project
     projectFilesBackgroundColor: string;
+    projectFilesTextColor: string;
+    projectFilesArrowColor: string;
     // Nav
     navBackgroundColor: string;
     navTextColor: string;
@@ -24,7 +27,10 @@ const baseExtension = {
 
 const darkV1Colors: CostumeColors = {
     mainBackgroundColor: "#2C2C32",
+    // Project
     projectFilesBackgroundColor: "#333333",
+    projectFilesTextColor: "#FFFFFF",
+    projectFilesArrowColor: "#676767",
     // Nav themes
     navBackgroundColor: "#3E3E3E",
     navSelectedBackgroundColor: "#2C2C32",
@@ -44,6 +50,8 @@ const lightV1Colors: CostumeColors = {
     mainBackgroundColor: theme.colors.gray[100],
     navBackgroundColor: theme.colors.gray[500],
     projectFilesBackgroundColor: theme.colors.gray[800],
+    projectFilesTextColor: "#FFFFFF",
+    projectFilesArrowColor: "#676767",
     navTextColor: "#676767",
     navSelectedBackgroundColor: "#3E3E3E",
     navSelectedTextColor: "#FFFFFF",
