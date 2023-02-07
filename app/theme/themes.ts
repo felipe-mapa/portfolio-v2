@@ -8,11 +8,18 @@ interface CostumeColors {
     projectFilesBackgroundColor: string;
     projectFilesTextColor: string;
     projectFilesArrowColor: string;
+    projectFilesSelectedBackgroundColor: string;
     // Nav
     navBackgroundColor: string;
     navTextColor: string;
     navSelectedTextColor: string;
     navSelectedBackgroundColor: string;
+    // Tabs
+    tabsBackgroundColor: string;
+    tabBackgroundColor: string;
+    tabTextColor: string;
+    tabSelectedBackgroundColor: string;
+    tabSelectedTextColor: string;
 }
 
 const baseExtension = {
@@ -31,11 +38,18 @@ const darkV1Colors: CostumeColors = {
     projectFilesBackgroundColor: "#333333",
     projectFilesTextColor: "#FFFFFF",
     projectFilesArrowColor: "#676767",
+    projectFilesSelectedBackgroundColor: "#676767",
     // Nav themes
     navBackgroundColor: "#3E3E3E",
     navSelectedBackgroundColor: "#2C2C32",
     navTextColor: "#676767",
     navSelectedTextColor: "#FFFFFF",
+    // Tabs
+    tabsBackgroundColor: "#363636",
+    tabBackgroundColor: "#3E3E3E",
+    tabSelectedBackgroundColor: "#2C2C32",
+    tabTextColor: "#676767",
+    tabSelectedTextColor: "#FFFFFF",
 };
 
 const darkV1: ExtendedTheme = extendTheme({

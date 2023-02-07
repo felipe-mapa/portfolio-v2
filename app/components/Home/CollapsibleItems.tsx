@@ -21,8 +21,13 @@ const CollapsibleItems = (props: CollapsibleItemsProps) => {
     const { isToggled, toggle } = useToggle(true);
 
     return (
-        <Box ms={`${branchLevel * 15}px`} p="0.5">
-            <Flex alignItems="center" onClick={toggle} cursor="pointer">
+        <Box py="0.5">
+            <Flex
+                ps={`${branchLevel * 15}px`}
+                alignItems="center"
+                onClick={toggle}
+                cursor="pointer"
+            >
                 <Stack
                     direction="row"
                     color="projectFilesArrowColor"
