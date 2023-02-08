@@ -5,6 +5,8 @@ import {
     faFolderOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect } from "react";
+import { useTabSystemContext } from "~/contexts/TabSystemProvider";
 import { useToggle } from "~/hooks/useToggle";
 import type { ProjectItem } from "~/models/types";
 import { ProjectItemFile } from "./ProjectItemFile";
@@ -16,9 +18,38 @@ interface CollapsibleItemsProps {
     branchLevel?: number;
 }
 
+const getIsFileInsideFolderSelected = (
+    items: ProjectItem[],
+    activeFileId: string
+): boolean => {
+    return items.some((items) => {
+        if (items.type === "file") {
+            return items.id === activeFileId;
+        }
+
+        return getIsFileInsideFolderSelected(items.items, activeFileId);
+    });
+};
+
 const CollapsibleItems = (props: CollapsibleItemsProps) => {
     const { items, title, isFolder = false, branchLevel = 0 } = props;
-    const { isToggled, toggle } = useToggle(true);
+    const { isToggled, toggle, setIsToggled } = useToggle(true);
+    const { activeTab } = useTabSystemContext();
+
+    useEffect(() => {
+        if (!isFolder) {
+            return;
+        }
+
+        const isFileInsideFolderSelected = getIsFileInsideFolderSelected(
+            items,
+            activeTab
+        );
+
+        if (isFileInsideFolderSelected) {
+            setIsToggled(true);
+        }
+    }, [activeTab, isFolder, items, toggle, setIsToggled]);
 
     return (
         <Box py="0.5">

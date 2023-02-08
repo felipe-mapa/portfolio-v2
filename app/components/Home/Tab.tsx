@@ -1,5 +1,4 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
-import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { Box, CloseButton, Flex, Text } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTabSystemContext } from "~/contexts/TabSystemProvider";
 import type { ProjectItemFile } from "~/models/types";
@@ -15,7 +14,6 @@ const Tab = ({ projectFile }: TabProps) => {
 
     return (
         <Flex
-            cursor="pointer"
             p={1}
             backgroundColor={
                 isActive ? "tabSelectedBackgroundColor" : "tabBackgroundColor"
@@ -23,6 +21,7 @@ const Tab = ({ projectFile }: TabProps) => {
             alignItems="center"
         >
             <Flex
+                cursor="pointer"
                 onClick={() => onFileSelect(projectFile.id)}
                 alignItems="center"
                 justifyContent="center"
@@ -42,20 +41,21 @@ const Tab = ({ projectFile }: TabProps) => {
                     {`${projectFile.title}.${projectFile.fileType}`}
                 </Text>
             </Flex>
-            <Box
+            <CloseButton
                 p="2"
                 pt="2.5"
+                ms="2"
+                me="1"
                 onClick={() => onTabClose(projectFile.id)}
-                color={isActive ? "tabSelectedTextColor" : "tabTextColor"}
+                size="sm"
                 opacity={isActive ? 1 : 0}
+                color={isActive ? "tabSelectedTextColor" : "tabTextColor"}
                 _hover={{
                     opacity: 1,
                     color: "tabSelectedTextColor",
+                    backgroundColor: "tabTextColor",
                 }}
-                cursor="pointer"
-            >
-                <FontAwesomeIcon icon={faClose} size="sm" />
-            </Box>
+            />
         </Flex>
     );
 };
