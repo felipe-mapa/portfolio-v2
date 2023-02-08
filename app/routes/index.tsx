@@ -1,5 +1,6 @@
 import { Flex, Box } from "@chakra-ui/react";
 import { CollapsibleItems } from "~/components/Home/CollapsibleItems";
+import { TabContent } from "~/components/Home/TabContent";
 import { Tabs } from "~/components/Home/Tabs";
 import { TabSystemProvider } from "~/contexts/TabSystemProvider";
 import { projectTree } from "~/models/constants";
@@ -21,6 +22,7 @@ export default function Index() {
                 </Box>
                 <Box width="100%">
                     <Tabs />
+                    <TabContent />
                 </Box>
             </TabSystemProvider>
         </Flex>
