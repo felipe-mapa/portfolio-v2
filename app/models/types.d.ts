@@ -10,6 +10,8 @@ interface ProjectItemBase {
     id: string;
 }
 
+export type FileType = "ts" | "tsx";
+
 export interface ProjectItemFolder extends ProjectItemBase {
     type: "folder";
     items: ProjectItem[];
@@ -17,7 +19,7 @@ export interface ProjectItemFolder extends ProjectItemBase {
 
 export interface ProjectItemFile extends ProjectItemBase {
     type: "file";
-    fileType: "ts" | "tsx";
+    fileType: FileType;
 }
 
 export type ProjectItem = ProjectItemFolder | ProjectItemFile;

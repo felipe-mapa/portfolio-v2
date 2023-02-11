@@ -5,7 +5,7 @@ import { Tabs } from "~/components/Home/Tabs";
 import { TabSystemProvider } from "~/contexts/TabSystemProvider";
 import { projectTree } from "~/models/constants";
 
-export default function Index() {
+const Index = () => {
     return (
         <Flex width="100%">
             <TabSystemProvider>
@@ -27,4 +27,6 @@ export default function Index() {
             </TabSystemProvider>
         </Flex>
     );
-}
+};
+
+export default Index;

@@ -1,13 +1,13 @@
 import { Text } from "@chakra-ui/react";
 import { useTabSystemContext } from "~/contexts/TabSystemProvider";
+import { WelcomeFile } from "./Content/WelcomeFile";
 
 const TabContent = () => {
     const { activeTab, openedTabs } = useTabSystemContext();
-    console.log("activeTab", activeTab);
 
     switch (activeTab) {
         case "welcomeFile":
-            return <Text color="white">welcome</Text>;
+            return <WelcomeFile />;
         case "aboutFile":
             return <Text color="white">about</Text>;
         case "projectsFile":

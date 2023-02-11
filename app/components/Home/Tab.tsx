@@ -1,8 +1,7 @@
 import { Box, CloseButton, Flex, Text } from "@chakra-ui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTabSystemContext } from "~/contexts/TabSystemProvider";
 import type { ProjectItemFile } from "~/models/types";
-import { getIconByFileType } from "~/utils/helpers";
+import TypeFileIcon from "../Icons/TypeFileIcon";
 
 interface TabProps {
     projectFile: ProjectItemFile;
@@ -28,11 +27,8 @@ const Tab = ({ projectFile }: TabProps) => {
                 direction="row"
                 py={2}
             >
-                <Box px="2" pt="1">
-                    <FontAwesomeIcon
-                        icon={getIconByFileType(projectFile.fileType)}
-                        color="white"
-                    />
+                <Box px="2">
+                    <TypeFileIcon boxSize={4} fileType={projectFile.fileType} />
                 </Box>
                 <Text
                     key={projectFile.id}

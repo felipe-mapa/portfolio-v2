@@ -1,4 +1,10 @@
-import React, { useState, useContext, useCallback, useMemo } from "react";
+import {
+    useState,
+    useContext,
+    useCallback,
+    useMemo,
+    createContext,
+} from "react";
 
 import type { WithChildrenProp } from "~/models/types";
 
@@ -16,8 +22,7 @@ const defaultState: TabSystemContextValue = {
     onTabClose: () => {},
 };
 
-const TabSystemContext =
-    React.createContext<TabSystemContextValue>(defaultState);
+const TabSystemContext = createContext<TabSystemContextValue>(defaultState);
 
 const TabSystemProvider = ({ children }: WithChildrenProp) => {
     const [activeTab, setActiveTab] = useState<string>(defaultState.activeTab);

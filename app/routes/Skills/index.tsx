@@ -1,9 +1,11 @@
 import { Box, Text } from "@chakra-ui/react";
 
-export default function Index() {
+const Index = () => {
     return (
         <Box width="100%" backgroundColor="darkmagenta">
             <Text>Skills</Text>
         </Box>
     );
-}
+};
+
+export default Index;

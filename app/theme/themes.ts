@@ -2,8 +2,10 @@ import { extendTheme, theme } from "@chakra-ui/react";
 
 export type ExtendedTheme = Record<string, any>;
 
+// TODO: rename variables below to match a standard naming
 interface CostumeColors {
     mainBackgroundColor: string;
+    textColor: string;
     // Project
     projectFilesBackgroundColor: string;
     projectFilesTextColor: string;
@@ -20,6 +22,15 @@ interface CostumeColors {
     tabTextColor: string;
     tabSelectedBackgroundColor: string;
     tabSelectedTextColor: string;
+    // File
+    importExportTextColor: string;
+    importFilePathTextColor: string;
+    importFileComponentTextColor: string;
+    variableTextColor: string;
+    fileTextColor: string;
+    bracketsTextColor: string;
+    tagBracketsTextColor: string;
+    tagTextColor: string;
 }
 
 const baseExtension = {
@@ -30,10 +41,16 @@ const baseExtension = {
     colors: {
         footerBackgroundColor: theme.colors.blue[500],
     },
+
+    fonts: {
+        heading: `'Chakra Petch', sans-serif`,
+        body: `'Chakra Petch', sans-serif`,
+    },
 };
 
 const darkV1Colors: CostumeColors = {
     mainBackgroundColor: "#2C2C32",
+    textColor: "#FFFFFF",
     // Project
     projectFilesBackgroundColor: "#333333",
     projectFilesTextColor: "#FFFFFF",
@@ -50,6 +67,15 @@ const darkV1Colors: CostumeColors = {
     tabSelectedBackgroundColor: "#2C2C32",
     tabTextColor: "#676767",
     tabSelectedTextColor: "#FFFFFF",
+    // File
+    importExportTextColor: "#A26FA7",
+    importFilePathTextColor: "#D0A340",
+    importFileComponentTextColor: "#85ded9",
+    fileTextColor: "#E5D685",
+    variableTextColor: "#5F76A8",
+    bracketsTextColor: "#ffe540",
+    tagBracketsTextColor: "#676767",
+    tagTextColor: "#5F76A8",
 };
 
 const darkV1: ExtendedTheme = extendTheme({

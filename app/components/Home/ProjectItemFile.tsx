@@ -1,8 +1,8 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTabSystemContext } from "~/contexts/TabSystemProvider";
+import TypeFileIcon from "../Icons/TypeFileIcon";
+
 import type { ProjectItemFile as ProjectItemFileType } from "~/models/types";
-import { getIconByFileType } from "~/utils/helpers";
 
 interface ProjectItemFileProps {
     item: ProjectItemFileType;
@@ -33,11 +33,7 @@ const ProjectItemFile = (props: ProjectItemFileProps) => {
                 ps={`${branchLevel * 25}px`}
                 alignItems="center"
             >
-                <FontAwesomeIcon
-                    icon={getIconByFileType(fileType)}
-                    color="white"
-                    size="sm"
-                />
+                <TypeFileIcon boxSize={4} fileType={fileType} />
                 <Text ms="2">{`${title}.${fileType}`}</Text>
             </Flex>
         </Box>

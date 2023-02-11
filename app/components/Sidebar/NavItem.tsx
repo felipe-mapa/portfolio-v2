@@ -35,4 +35,4 @@ const NavItem = (props: NavItemProps) => {
     );
 };
 
-export default NavItem;
+export { NavItem };
