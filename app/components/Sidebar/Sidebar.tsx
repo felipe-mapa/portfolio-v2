@@ -4,7 +4,7 @@ import {
     faFileCode,
     faMicrochip,
 } from "@fortawesome/free-solid-svg-icons";
-import NavItem from "./NavItem";
+import { NavItem } from "./NavItem";
 
 const Sidebar = () => {
     return (

@@ -1,7 +1,8 @@
 import { Box, CloseButton, Flex, Text } from "@chakra-ui/react";
 import { useTabSystemContext } from "~/contexts/TabSystemProvider";
+import { TypeFileIcon } from "../Icons/TypeFileIcon";
+
 import type { ProjectItemFile } from "~/models/types";
-import TypeFileIcon from "../Icons/TypeFileIcon";
 
 interface TabProps {
     projectFile: ProjectItemFile;

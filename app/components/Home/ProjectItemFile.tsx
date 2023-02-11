@@ -1,6 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
+import { TypeFileIcon } from "../Icons/TypeFileIcon";
 import { useTabSystemContext } from "~/contexts/TabSystemProvider";
-import TypeFileIcon from "../Icons/TypeFileIcon";
 
 import type { ProjectItemFile as ProjectItemFileType } from "~/models/types";
 
