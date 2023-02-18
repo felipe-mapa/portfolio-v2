@@ -61,7 +61,7 @@ const CollapsibleItems = (props: CollapsibleItemsProps) => {
             >
                 <Stack
                     direction="row"
-                    color="projectFilesArrowColor"
+                    color="sideBar.iconForeground"
                     alignItems="center"
                 >
                     <Box

@@ -12,8 +12,8 @@ const Index = () => {
                 <Box
                     p={1}
                     width="300px"
-                    backgroundColor="projectFilesBackgroundColor"
-                    color="projectFilesTextColor"
+                    backgroundColor="sideBar.background"
+                    color="sideBar.foreground"
                 >
                     <CollapsibleItems
                         title={projectTree.title}

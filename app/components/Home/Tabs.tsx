@@ -1,4 +1,4 @@
-import { Stack } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
 import { Tab } from "./Tab";
 import { getFilesFromProjectTree } from "~/models/constants";
@@ -10,11 +10,11 @@ const Tabs = () => {
     const projectFiles = getFilesFromProjectTree();
 
     return (
-        <Stack
+        <Flex
             direction="row"
-            spacing="2px"
-            backgroundColor="tabsBackgroundColor"
+            backgroundColor="editorGroupHeader.tabsBackground"
             width="100%"
+            flexWrap="wrap"
         >
             {openedTabs.map((tab) => {
                 const projectFile = projectFiles.find(
@@ -27,7 +27,7 @@ const Tabs = () => {
 
                 return <Tab key={projectFile.id} projectFile={projectFile} />;
             })}
-        </Stack>
+        </Flex>
     );
 };
 

@@ -10,7 +10,7 @@ const Sidebar = () => {
     return (
         <Flex
             width="20"
-            backgroundColor="navBackgroundColor"
+            backgroundColor="activityBar.background"
             direction="column"
         >
             <NavItem pathname="/" title="Home" icon={faFileCode} />

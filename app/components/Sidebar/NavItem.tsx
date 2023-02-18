@@ -22,11 +22,17 @@ const NavItem = (props: NavItemProps) => {
                 direction="column"
                 p={3}
                 backgroundColor={
-                    isSelected ? "navSelectedBackgroundColor" : "transparent"
+                    isSelected ? "activityBar.activeBackground" : "transparent"
                 }
-                borderLeft={isSelected ? "navSelectedTextColor" : "transparent"}
+                borderLeftColor={
+                    isSelected ? "activityBar.activeBorder" : "transparent"
+                }
                 borderLeftWidth={2}
-                color={isSelected ? "navSelectedTextColor" : "navTextColor"}
+                color={
+                    isSelected
+                        ? "activityBar.foreground"
+                        : "activityBar.inactiveForeground"
+                }
             >
                 <FontAwesomeIcon icon={props.icon} size="2x" />
                 <Text>{props.title}</Text>

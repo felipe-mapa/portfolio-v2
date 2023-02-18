@@ -14,17 +14,17 @@ const Tag = (props: TagProps) => {
 
     return (
         <Box ms={START_MARGIN}>
-            <Text color="tagBracketsTextColor">
+            <Text color="file.tagPunctuation">
                 {"<"}
-                <Box as="span" color="tagTextColor">
+                <Box as="span" color="file.tagName">
                     {name}
                 </Box>
                 {">"}
             </Text>
             <Box ms={addSpacingToChildren ? START_MARGIN : 0}>{children}</Box>
-            <Text color="tagBracketsTextColor">
+            <Text color="file.tagPunctuation">
                 {"</"}
-                <Box as="span" color="tagTextColor">
+                <Box as="span" color="file.tagName">
                     {name}
                 </Box>
                 {">"}

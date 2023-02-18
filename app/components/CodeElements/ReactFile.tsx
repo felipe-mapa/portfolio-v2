@@ -8,46 +8,42 @@ interface ReactFileProps extends WithChildrenProp {
 const ReactFile = ({ name, children }: ReactFileProps) => {
     return (
         <Flex pt={3} ps={5} direction="column" height="100%">
-            <Text
-                color="importExportTextColor"
-                mb="40"
-                style={{ wordSpacing: "5px" }}
-            >
+            <Text color="file.keyword" mb="40" style={{ wordSpacing: "5px" }}>
                 import{" "}
-                <Box as="span" color="importFileComponentTextColor">
+                <Box as="span" color="file.imported">
                     React
                 </Box>{" "}
                 from{" "}
-                <Box as="span" color="importFilePathTextColor">
+                <Box as="span" color="file.string">
                     'react'
                 </Box>
-                <Box as="span" color="textColor">
+                <Box as="span" color="editor.foreground">
                     ;
                 </Box>
             </Text>
             <>
-                <Text color="textColor" style={{ wordSpacing: "5px" }}>
-                    <Box as="span" color="importExportTextColor">
+                <Text color="editor.foreground" style={{ wordSpacing: "5px" }}>
+                    <Box as="span" color="file.keyword">
                         export{" "}
                     </Box>
-                    <Box as="span" color="variableTextColor">
+                    <Box as="span" color="file.declaration">
                         const{" "}
                     </Box>
-                    <Box as="span" color="fileTextColor">
+                    <Box as="span" color="file.function">
                         {name}{" "}
                     </Box>
                     =
-                    <Box as="span" color="bracketsTextColor">
+                    <Box as="span" color="file.bracket.color1">
                         {" () "}
                     </Box>
                     {" => "}
-                    <Box as="span" color="bracketsTextColor">
+                    <Box as="span" color="file.bracket.color1">
                         {"("}
                     </Box>
                 </Text>
                 {children}
-                <Text color="textColor" style={{ wordSpacing: "5px" }}>
-                    <Box as="span" color="bracketsTextColor">
+                <Text color="editor.foreground" style={{ wordSpacing: "5px" }}>
+                    <Box as="span" color="file.bracket.color1">
                         {")"}
                     </Box>
                     ;

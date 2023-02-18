@@ -16,8 +16,9 @@ const Tab = ({ projectFile }: TabProps) => {
         <Flex
             p={1}
             backgroundColor={
-                isActive ? "tabSelectedBackgroundColor" : "tabBackgroundColor"
+                isActive ? "tab.activeBackground" : "tab.inactiveBackground"
             }
+            mr="2px"
             alignItems="center"
         >
             <Flex
@@ -33,7 +34,11 @@ const Tab = ({ projectFile }: TabProps) => {
                 </Box>
                 <Text
                     key={projectFile.id}
-                    color={isActive ? "tabSelectedTextColor" : "tabTextColor"}
+                    color={
+                        isActive
+                            ? "tab.activeForeground"
+                            : "tab.inactiveForeground"
+                    }
                 >
                     {`${projectFile.title}.${projectFile.fileType}`}
                 </Text>
@@ -46,11 +51,13 @@ const Tab = ({ projectFile }: TabProps) => {
                 onClick={() => onTabClose(projectFile.id)}
                 size="sm"
                 opacity={isActive ? 1 : 0}
-                color={isActive ? "tabSelectedTextColor" : "tabTextColor"}
+                color={
+                    isActive ? "tab.activeForeground" : "tab.inactiveForeground"
+                }
                 _hover={{
                     opacity: 1,
-                    color: "tabSelectedTextColor",
-                    backgroundColor: "tabTextColor",
+                    color: "tab.activeForeground",
+                    backgroundColor: "tab.inactiveForeground",
                 }}
             />
         </Flex>

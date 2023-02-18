@@ -36,7 +36,7 @@ const Document = ({ children }: WithChildrenProp) => {
                 <Meta />
                 <Links />
             </head>
-            <body>
+            <body style={{ overflow: "hidden" }}>
                 <ThemeProvider>{children}</ThemeProvider>
                 <ScrollRestoration />
                 <Scripts />
@@ -55,7 +55,7 @@ const WithTheme = ({ children }: WithChildrenProp) => {
 const App = () => (
     <Document>
         <WithTheme>
-            <Box h="screenHeight" backgroundColor="mainBackgroundColor">
+            <Box h="screenHeight" backgroundColor="editor.background">
                 <Flex height="calc(100vh - 24px)">
                     <Sidebar />
                     <Outlet />

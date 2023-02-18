@@ -22,7 +22,7 @@ const ProjectItemFile = (props: ProjectItemFileProps) => {
             py="0.5"
             backgroundColor={
                 activeTab === id
-                    ? "projectFilesSelectedBackgroundColor"
+                    ? "sideBar.activeItemBackground"
                     : "transparent"
             }
             cursor="pointer"
