@@ -16,6 +16,7 @@ const Footer = () => {
     return (
         <footer>
             <Flex
+                position="relative"
                 justify="space-between"
                 width="100%"
                 height="24px"

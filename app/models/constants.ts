@@ -49,9 +49,9 @@ export const projectTree: ProjectTree = {
             title: "hooks",
             items: [
                 {
-                    id: "useContactFormFile",
+                    id: "useContactFile",
                     type: "file",
-                    title: "useContactForm",
+                    title: "useContact",
                     fileType: "ts",
                 },
             ],

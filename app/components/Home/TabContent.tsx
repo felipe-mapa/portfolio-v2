@@ -14,8 +14,8 @@ const TabContent = () => {
             return <Text color="white">projects</Text>;
         case "skillsFile":
             return <Text color="white">skills</Text>;
-        case "useContactFormFile":
-            return <Text color="white">useContactForm</Text>;
+        case "useContactFile":
+            return <Text color="white">useContact</Text>;
 
         default:
             // TODO
