@@ -12,6 +12,7 @@ const Sidebar = () => {
             width="20"
             backgroundColor="activityBar.background"
             direction="column"
+            zIndex={2}
         >
             <NavItem pathname="/" title="Home" icon={faFileCode} />
             {/* TODO: Find a nicer skills icon */}

@@ -41,6 +41,26 @@ const AboutFile = () => {
                         Vgjrwd vb v vgjdrnv Vnbjfrwsngvknfrkgv bnfriknbgvinrfs
                         mbvmjfrsn vhrdwuvb vdrwhnuv Bvwronnruvwns
                     </Text>
+                    <Text
+                        fontSize="2xl"
+                        color="editor.foreground"
+                        maxWidth="600px"
+                        lineHeight={"8"}
+                    >
+                        Fbknf bkfsrnwbk bjfrsnb bjrfsn jrgvnr Bnvjrfn brfswnb.
+                        Vgjrwd vb v vgjdrnv Vnbjfrwsngvknfrkgv bnfriknbgvinrfs
+                        mbvmjfrsn vhrdwuvb vdrwhnuv Bvwronnruvwns
+                    </Text>
+                    <Text
+                        fontSize="2xl"
+                        color="editor.foreground"
+                        maxWidth="600px"
+                        lineHeight={"8"}
+                    >
+                        Fbknf bkfsrnwbk bjfrsnb bjrfsn jrgvnr Bnvjrfn brfswnb.
+                        Vgjrwd vb v vgjdrnv Vnbjfrwsngvknfrkgv bnfriknbgvinrfs
+                        mbvmjfrsn vhrdwuvb vdrwhnuv Bvwronnruvwns
+                    </Text>
                 </Tag>
             </Tag>
         </ReactFile>

@@ -16,13 +16,8 @@ const ReactFile = ({ name, children }: ReactFileProps) => {
                 px={5}
                 direction="column"
                 height="100%"
-                overflowY="scroll"
             >
-                <Text
-                    color="file.keyword"
-                    mb="5"
-                    style={{ wordSpacing: "5px" }}
-                >
+                <Text color="file.keyword" style={{ wordSpacing: "5px" }}>
                     import{" "}
                     <Box as="span" color="file.imported">
                         React
@@ -39,6 +34,7 @@ const ReactFile = ({ name, children }: ReactFileProps) => {
                     justifyContent="space-around"
                     direction="column"
                     height="100%"
+                    marginY={5}
                 >
                     <Box>
                         <Text

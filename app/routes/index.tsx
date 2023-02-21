@@ -14,6 +14,7 @@ const Index = () => {
                     width="300px"
                     backgroundColor="sideBar.background"
                     color="sideBar.foreground"
+                    zIndex={2}
                 >
                     <CollapsibleItems
                         title={projectTree.title}

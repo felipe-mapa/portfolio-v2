@@ -23,11 +23,10 @@ const ScreenContainer = ({ children }: WithChildrenProp) => {
     const [containerSize, setContainerSize] = useState({ height: 0, width: 0 });
 
     const onMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-        setMaskPosition(
-            `${e.clientX - containerSize.width / 2 - 325}px ${
-                e.clientY - containerSize.height / 2 - 50
-            }px`
-        );
+        const yPosition = `calc(${e.clientY}px - 50vh - ${BLUR_SIZE / 2}px)`;
+        const xPosition = `calc(${e.clientX}px - 50vw - ${BLUR_SIZE / 2}px)`;
+
+        setMaskPosition(`${xPosition} ${yPosition}`);
     };
 
     const onMouseLeave = () => {
@@ -39,10 +38,10 @@ const ScreenContainer = ({ children }: WithChildrenProp) => {
             return;
         }
 
-        const { clientHeight, clientWidth } = containerRef.current;
+        const { offsetHeight, offsetWidth } = containerRef.current;
         setContainerSize({
-            height: clientHeight + BLUR_SIZE,
-            width: clientWidth + BLUR_SIZE,
+            height: offsetHeight + BLUR_SIZE,
+            width: offsetWidth + BLUR_SIZE,
         });
     }, []);
 
@@ -52,6 +51,10 @@ const ScreenContainer = ({ children }: WithChildrenProp) => {
 
     useEffect(() => {
         window.addEventListener("resize", updateContainerSize);
+
+        return () => {
+            window.removeEventListener("resize", updateContainerSize);
+        };
     }, [updateContainerSize]);
 
     const blurBackgroundMaskStyle = useMemo(() => {
@@ -67,14 +70,16 @@ const ScreenContainer = ({ children }: WithChildrenProp) => {
     }, [containerSize.height, containerSize.width, maskPosition]);
 
     return (
-        <Box
-            ref={containerRef}
-            onMouseMove={onMouseMove}
-            onMouseLeave={onMouseLeave}
-            position="relative"
-            height="100%"
-        >
-            <Box position="absolute" top={0} left={0} width="100%">
+        <Box onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
+            <Box
+                ref={containerRef}
+                position="absolute"
+                top={0}
+                left={0}
+                overflow="hidden"
+                width="100vw"
+                height="100vh"
+            >
                 <Box
                     position="absolute"
                     top={0}

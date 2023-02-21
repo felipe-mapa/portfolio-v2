@@ -15,6 +15,7 @@ const Tabs = () => {
             backgroundColor="editorGroupHeader.tabsBackground"
             width="100%"
             flexWrap="wrap"
+            zIndex={2}
         >
             {openedTabs.map((tab) => {
                 const projectFile = projectFiles.find(
