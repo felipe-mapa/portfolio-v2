@@ -41,10 +41,10 @@ interface CostumeColors {
         variable: string;
         imported: string;
         string: string;
+        component: string; // <ReactComponent />
         declaration: string; // const let interface extends
         // type: string; // ComponentProps // not needed yet
         // number: string; // Not needed yet
-        // component: string <ReactComponent /> // not needed yet
         // attribute: string // style={} // not need yet
         bracket: {
             color1: string;
@@ -108,6 +108,7 @@ const darkV1Colors: CostumeColors = {
         imported: "#9CDCFE",
         string: "#CE9178",
         declaration: "#569CD6",
+        component: "#4EC9B0",
         bracket: {
             color1: "#FFE128",
             color2: "#C586C0",
