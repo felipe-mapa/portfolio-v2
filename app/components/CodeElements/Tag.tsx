@@ -7,7 +7,7 @@ interface TagProps extends WithChildrenProp {
     addSpacingToChildren?: boolean;
 }
 
-const START_MARGIN = 10;
+export const START_MARGIN = 10;
 
 const Tag = (props: TagProps) => {
     const { name = "", children, addSpacingToChildren = false } = props;

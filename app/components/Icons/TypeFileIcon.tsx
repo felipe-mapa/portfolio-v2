@@ -2,8 +2,8 @@ import { Box, Image } from "@chakra-ui/react";
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import TsLogo from "~/assets/library-logos/ts.png";
-import ReactLogo from "~/assets/library-logos/react.png";
+import TsLogo from "~/assets/images/library-logos/ts.png";
+import ReactLogo from "~/assets/images/library-logos/react.png";
 
 import type { FileType } from "~/models/types";
 import type { LayoutProps } from "@chakra-ui/react";

@@ -1,5 +1,7 @@
 import { Text } from "@chakra-ui/react";
 import { useTabSystemContext } from "~/contexts/TabSystemProvider";
+
+import { AboutFile } from "./Content/AboutFile";
 import { WelcomeFile } from "./Content/WelcomeFile";
 
 const TabContent = () => {
@@ -9,7 +11,7 @@ const TabContent = () => {
         case "welcomeFile":
             return <WelcomeFile />;
         case "aboutFile":
-            return <Text color="white">about</Text>;
+            return <AboutFile />;
         case "projectsFile":
             return <Text color="white">projects</Text>;
         case "skillsFile":

@@ -12,14 +12,15 @@ const ReactFile = ({ name, children }: ReactFileProps) => {
         <ScreenContainer>
             <Flex
                 position="relative"
-                pt={3}
-                ps={5}
+                py={3}
+                px={5}
                 direction="column"
                 height="100%"
+                overflowY="scroll"
             >
                 <Text
                     color="file.keyword"
-                    mb="40"
+                    mb="5"
                     style={{ wordSpacing: "5px" }}
                 >
                     import{" "}
@@ -34,40 +35,48 @@ const ReactFile = ({ name, children }: ReactFileProps) => {
                         ;
                     </Box>
                 </Text>
-                <>
-                    <Text
-                        color="editor.foreground"
-                        style={{ wordSpacing: "5px" }}
-                    >
-                        <Box as="span" color="file.keyword">
-                            export{" "}
-                        </Box>
-                        <Box as="span" color="file.declaration">
-                            const{" "}
-                        </Box>
-                        <Box as="span" color="file.function">
-                            {name}{" "}
-                        </Box>
-                        =
-                        <Box as="span" color="file.bracket.color1">
-                            {" () "}
-                        </Box>
-                        {" => "}
-                        <Box as="span" color="file.bracket.color1">
-                            {"("}
-                        </Box>
-                    </Text>
-                    {children}
-                    <Text
-                        color="editor.foreground"
-                        style={{ wordSpacing: "5px" }}
-                    >
-                        <Box as="span" color="file.bracket.color1">
-                            {")"}
-                        </Box>
-                        ;
-                    </Text>
-                </>
+                <Flex
+                    justifyContent="space-around"
+                    direction="column"
+                    height="100%"
+                >
+                    <Box>
+                        <Text
+                            color="editor.foreground"
+                            style={{ wordSpacing: "5px" }}
+                        >
+                            <Box as="span" color="file.keyword">
+                                export{" "}
+                            </Box>
+                            <Box as="span" color="file.declaration">
+                                const{" "}
+                            </Box>
+                            <Box as="span" color="file.function">
+                                {name}{" "}
+                            </Box>
+                            =
+                            <Box as="span" color="file.bracket.color1">
+                                {" () "}
+                            </Box>
+                            {" => "}
+                            <Box as="span" color="file.bracket.color1">
+                                {"("}
+                            </Box>
+                        </Text>
+                        {children}
+                        <Text
+                            color="editor.foreground"
+                            style={{ wordSpacing: "5px" }}
+                        >
+                            <Box as="span" color="file.bracket.color1">
+                                {")"}
+                            </Box>
+                            ;
+                        </Text>
+                    </Box>
+                    {/* Move component slightly higher */}
+                    <Box />
+                </Flex>
             </Flex>
         </ScreenContainer>
     );

@@ -69,10 +69,10 @@ const ScreenContainer = ({ children }: WithChildrenProp) => {
     return (
         <Box
             ref={containerRef}
-            position="relative"
-            height="100%"
             onMouseMove={onMouseMove}
             onMouseLeave={onMouseLeave}
+            position="relative"
+            height="100%"
         >
             <Box position="absolute" top={0} left={0} width="100%">
                 <Box

@@ -20,10 +20,10 @@ const Index = () => {
                         items={projectTree.items}
                     />
                 </Box>
-                <Box width="100%">
+                <Flex width="100%" height="100%" direction="column">
                     <Tabs />
                     <TabContent />
-                </Box>
+                </Flex>
             </TabSystemProvider>
         </Flex>
     );
