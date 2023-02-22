@@ -23,7 +23,7 @@ const Index = () => {
                 </Box>
                 <Flex width="100%" height="100%" direction="column">
                     <Tabs />
-                    <TabContent />
+                    <TabContent items={projectTree.items} />
                 </Flex>
             </TabSystemProvider>
         </Flex>

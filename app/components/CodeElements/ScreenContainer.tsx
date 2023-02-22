@@ -65,7 +65,7 @@ const ScreenContainer = ({ children }: WithChildrenProp) => {
         return {
             WebkitMaskPosition: maskPosition,
             WebkitMaskSize: `${containerSize.width}px ${containerSize.height}px`,
-            WebkitMaskImage: `radial-gradient(circle, rgba(0, 0, 0, 0.8) 10px, rgba(0, 0, 0, 1) ${BLUR_SIZE}px)`,
+            WebkitMaskImage: `radial-gradient(circle, rgba(0, 0, 0, 0.5) 10px, rgba(0, 0, 0, 1) ${BLUR_SIZE}px)`,
         };
     }, [containerSize.height, containerSize.width, maskPosition]);
 
