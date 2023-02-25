@@ -12,6 +12,7 @@ import { WelcomeFile } from "./Content/WelcomeFile";
 import type { UIEvent } from "react";
 import type { ProjectItem } from "~/models/types";
 
+// Needs to receive `activeTab` as prop to sync animation
 const Content = ({ activeTab }: { activeTab: string }) => {
     const { openedTabs } = useTabSystemContext();
 
@@ -79,28 +80,13 @@ const TabContent = ({ items }: TabContentProps) => {
         onFileSelect(nextPageId);
     };
 
-    const onScroll = (e: UIEvent<HTMLDivElement>) => {
-        if (!e.target) {
-            return;
-        }
-
-        // TODO: Find out why it's given a type warning
-        // @ts-expect-error
-        const { scrollHeight = 0, scrollTop = 0, clientHeight = 0 } = e.target;
-
-        const isEnd = scrollHeight - scrollTop === clientHeight;
-
-        if (isEnd) {
-            // TODO: show some animation on the button
-        }
-    };
-
     return (
-        <Box onScroll={onScroll} overflow="scroll" height="100%">
+        // TODO: Fix scrolling bar showing some times
+        <Box overflow="scroll" height="100%">
             <AnimatePresence mode="wait">
                 <motion.div
                     key={activeTab}
-                    animate={{ opacity: 1, y: 0, decelerate: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
                     initial={{ opacity: 0, y: -20 }}
                     exit={{ opacity: 0, y: 20 }}
                     transition={{ duration: 0.2, ease: "backIn" }}
@@ -112,15 +98,17 @@ const TabContent = ({ items }: TabContentProps) => {
                 <motion.div
                     animate={{
                         opacity: 1,
+                        display: "block",
                     }}
-                    initial={{ opacity: 0 }}
-                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0, display: "none" }}
+                    exit={{ opacity: 0, display: "none" }}
                     transition={{ duration: 0.5, delay: 5 }}
                 >
                     <Button
                         position="fixed"
                         right={"10"}
                         bottom={"14"}
+                        boxShadow="md"
                         onClick={onOpenNextPage}
                         rightIcon={<FontAwesomeIcon icon={faArrowRight} />}
                     >

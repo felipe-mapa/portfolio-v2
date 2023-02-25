@@ -13,6 +13,7 @@ interface TabSystemContextValue {
     activeTab: string;
     onFileSelect: (id: string) => void;
     onTabClose: (id: string) => void;
+    setOpenedTabs: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const defaultState: TabSystemContextValue = {
@@ -20,6 +21,7 @@ const defaultState: TabSystemContextValue = {
     activeTab: "welcomeFile",
     onFileSelect: () => {},
     onTabClose: () => {},
+    setOpenedTabs: () => {},
 };
 
 const TabSystemContext = createContext<TabSystemContextValue>(defaultState);
@@ -60,6 +62,7 @@ const TabSystemProvider = ({ children }: WithChildrenProp) => {
             openedTabs,
             onFileSelect,
             onTabClose,
+            setOpenedTabs,
         }),
         [activeTab, openedTabs, onFileSelect, onTabClose]
     );
