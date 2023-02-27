@@ -8,6 +8,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import { AboutFile } from "./Content/AboutFile";
 import { WelcomeFile } from "./Content/WelcomeFile";
+import { ProjectsFile } from "./Content/ProjectsFile";
 
 import type { ProjectItem } from "~/models/types";
 
@@ -21,7 +22,7 @@ const Content = ({ activeTab }: { activeTab: string }) => {
         case "aboutFile":
             return <AboutFile />;
         case "projectsFile":
-            return <Text color="white">projects</Text>;
+            return <ProjectsFile />;
         case "skillsFile":
             return <Text color="white">skills</Text>;
         case "useContactFile":
