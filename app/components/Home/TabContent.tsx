@@ -9,7 +9,6 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { AboutFile } from "./Content/AboutFile";
 import { WelcomeFile } from "./Content/WelcomeFile";
 
-import type { UIEvent } from "react";
 import type { ProjectItem } from "~/models/types";
 
 // Needs to receive `activeTab` as prop to sync animation
@@ -81,8 +80,7 @@ const TabContent = ({ items }: TabContentProps) => {
     };
 
     return (
-        // TODO: Fix scrolling bar showing some times
-        <Box overflow="scroll" height="100%">
+        <Box overflow="scroll" height="100%" className="hide-scrollbar">
             <AnimatePresence mode="wait">
                 <motion.div
                     key={activeTab}
