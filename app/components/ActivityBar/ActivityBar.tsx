@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { NavItem } from "./NavItem";
 
-const Sidebar = () => {
+const ActivityBar = () => {
     return (
         <Flex
             width="20"
@@ -27,4 +27,4 @@ const Sidebar = () => {
     );
 };
 
-export { Sidebar };
+export { ActivityBar };

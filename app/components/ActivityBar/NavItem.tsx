@@ -1,7 +1,8 @@
 import { Flex, Text } from "@chakra-ui/react";
-import { type IconDefinition } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink, useLocation } from "@remix-run/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { type IconDefinition } from "@fortawesome/free-regular-svg-icons";
 
 interface NavItemProps {
     title: string;
@@ -12,7 +13,13 @@ interface NavItemProps {
 const NavItem = (props: NavItemProps) => {
     const location = useLocation();
 
-    const isSelected = location.pathname === props.pathname;
+    const isSelected = (() => {
+        if (props.pathname === "/") {
+            return location.pathname === props.pathname;
+        }
+
+        return location.pathname.includes(props.pathname);
+    })();
 
     return (
         <NavLink to={props.pathname}>

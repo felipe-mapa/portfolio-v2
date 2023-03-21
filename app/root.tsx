@@ -8,10 +8,11 @@ import {
     ScrollRestoration,
 } from "@remix-run/react";
 import { Footer } from "./components/Footer/Footer";
-import { Sidebar } from "./components/Sidebar/Sidebar";
+import { ActivityBar } from "./components/ActivityBar/ActivityBar";
 import { ThemeProvider, useThemeContext } from "./contexts/ThemeProvider";
 
 import rootStyle from "./root.css";
+import nameAnimationStyle from "./components/NameAnimation/nameAnimation.css";
 
 import type { MetaFunction } from "@remix-run/node";
 import type { WithChildrenProp } from "./models/types";
@@ -31,6 +32,10 @@ export const links = () => {
         {
             rel: "stylesheet",
             href: rootStyle,
+        },
+        {
+            rel: "stylesheet",
+            href: nameAnimationStyle,
         },
     ];
 };
@@ -63,7 +68,7 @@ const App = () => (
         <WithTheme>
             <Box h="screenHeight" backgroundColor="editor.background">
                 <Flex height="calc(100vh - 24px)">
-                    <Sidebar />
+                    <ActivityBar />
                     <Outlet />
                 </Flex>
                 <Footer />

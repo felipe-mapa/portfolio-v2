@@ -1,17 +1,37 @@
-import { Box, Button, Flex, Image, Stack } from "@chakra-ui/react";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { Box, Button, Flex, Image } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+
+import { getProjectById } from "~/data/projects";
 import { Tag } from "~/components/CodeElements/Tag";
 import { ReactFile } from "../../CodeElements/ReactFile";
 
-import CommuteThumbnail from "~/assets/images/thumbnails/commutevisualiser_web_thumbnail.png";
-import DartsThumbnail from "~/assets/images/thumbnails/darts_app_thumbnail.png";
-import FlagFinderThumbnail from "~/assets/images/thumbnails/flagfinder_app_thumbnail.png";
+import type { WithChildrenProp } from "~/models/types";
 
 const imageProps = {
     height: 200,
     width: 200,
 };
+
+interface BoxContainerProps extends WithChildrenProp {
+    href: string;
+}
+
+const BoxContainer = ({ children, href }: BoxContainerProps) => (
+    <Box
+        m={2}
+        as="a"
+        href={href}
+        transition="all"
+        _hover={{
+            translate: "1px -1px",
+        }}
+    >
+        {children}
+    </Box>
+);
+
+const projectIds = ["dartboard-scorer", "flag-finder", "commute-visualiser"];
 
 const ProjectsFile = () => {
     return (
@@ -23,34 +43,33 @@ const ProjectsFile = () => {
                     tagProps={[{ key: "direction", value: "row" }]}
                 >
                     <Flex my={1} direction="row" flexWrap="wrap">
-                        <Box as="a" href="/projects/darts" m={2}>
-                            <Image
-                                borderRadius="lg"
-                                {...imageProps}
-                                src={DartsThumbnail}
-                            />
-                        </Box>
-                        <Box as="a" href="/projects/darts" m={2}>
-                            <Image
-                                borderRadius="lg"
-                                {...imageProps}
-                                src={CommuteThumbnail}
-                            />
-                        </Box>
-                        <Box as="a" href="/projects/darts" m={2}>
-                            <Image
-                                borderRadius="lg"
-                                {...imageProps}
-                                src={FlagFinderThumbnail}
-                            />
-                        </Box>
+                        {projectIds.map((projectId) => {
+                            const project = getProjectById(projectId);
+
+                            if (!project) {
+                                return null;
+                            }
+
+                            return (
+                                <BoxContainer
+                                    key={project.id}
+                                    href={`/projects/${project.id}`}
+                                >
+                                    <Image
+                                        borderRadius="lg"
+                                        {...imageProps}
+                                        src={project.thumbnailImage}
+                                    />
+                                </BoxContainer>
+                            );
+                        })}
                     </Flex>
                 </Tag>
                 <Tag addSpacingToChildren name="Button">
                     <Button
                         as="a"
                         colorScheme="blue"
-                        my={2}
+                        m={2}
                         size="sm"
                         href="/projects"
                     >

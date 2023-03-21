@@ -1,8 +1,13 @@
+import { useTimeout } from "usehooks-ts";
+import { useLocation } from "@remix-run/react";
+import { Box, Flex, Spinner } from "@chakra-ui/react";
+import { motion, AnimatePresence } from "framer-motion";
 import React, { useState, useEffect, useContext } from "react";
+
 import themes from "~/theme/themes";
+import { NameAnimation } from "~/components/NameAnimation/NameAnimation";
 
 import type { ExtendedTheme, ThemeName } from "~/theme/themes";
-
 import type { WithChildrenProp } from "~/models/types";
 
 interface ThemeContextValue {
@@ -23,10 +28,27 @@ const defaultTheme: ThemeContextValue = {
     updateTheme: () => {},
 };
 
+const BackgroundBase = ({ children }: WithChildrenProp) => (
+    <Flex
+        backgroundColor="#1E1E1E"
+        width="100vw"
+        height="100vh"
+        alignItems="center"
+        justifyContent="center"
+    >
+        {children}
+    </Flex>
+);
+
 const ThemeContext = React.createContext<ThemeContextValue>(defaultTheme);
 
 const ThemeProvider = ({ children }: WithChildrenProp) => {
+    const { pathname } = useLocation();
+    const isHomeScreen = pathname === "/";
     const [theme, setTheme] = useState<ThemeState | null>(null);
+    const [isAnimationFinished, setIsAnimationFinished] = useState(
+        !isHomeScreen
+    );
 
     const updateTheme = (themeName: ThemeName) => {
         setTheme({
@@ -63,14 +85,35 @@ const ThemeProvider = ({ children }: WithChildrenProp) => {
         localStorage?.setItem("globalTheme", theme.name);
     }, [theme]);
 
+    useTimeout(() => setIsAnimationFinished(true), 2500);
+
     if (!theme) {
-        // TODO: add a loading message and spinner
-        return null;
+        return (
+            <BackgroundBase>
+                <Spinner size="xl" />
+            </BackgroundBase>
+        );
     }
 
     return (
         <ThemeContext.Provider value={{ theme, updateTheme }}>
             {children}
+            <AnimatePresence mode="wait">
+                {!isAnimationFinished && (
+                    <Box position="absolute" top={0} zIndex={999}>
+                        <motion.div
+                            key={"spinner"}
+                            initial={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeIn" }}
+                        >
+                            <BackgroundBase>
+                                <NameAnimation />
+                            </BackgroundBase>
+                        </motion.div>
+                    </Box>
+                )}
+            </AnimatePresence>
         </ThemeContext.Provider>
     );
 };

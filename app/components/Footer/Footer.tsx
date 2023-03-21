@@ -30,10 +30,18 @@ const Footer = () => {
                     alignItems="center"
                 >
                     <Flex px={2} alignItems="center">
+                        {/* TODO: uncomment once README if finished */}
+                        {/* <Flex
+                        as="a"
+                        px={2}
+                        alignItems="center"
+                        target="_blank"
+                        href="https://github.com/felipe-mapa/portfolio-v2"
+                    > */}
                         <FontAwesomeIcon icon={faCodeBranch} />
                         <Text ps={2}>main</Text>
                     </Flex>
-                    <Button
+                    {/* <Button
                         onClick={() => updateTheme("darkV1")}
                         colorScheme="teal"
                         size="xs"
@@ -46,7 +54,7 @@ const Footer = () => {
                         size="xs"
                     >
                         LIGHT
-                    </Button>
+                    </Button> */}
                 </Stack>
                 <Tooltip
                     label="Oh no! You found a bug on my website!"

@@ -1,11 +1,8 @@
-import { Box, Text } from "@chakra-ui/react";
+import { redirect } from "@remix-run/node";
+import { projects } from "~/data/projects";
 
-const Index = () => {
-    return (
-        <Box width="100%" backgroundColor="darkolivegreen">
-            <Text>Projects</Text>
-        </Box>
-    );
+export const loader = async () => {
+    // Show first project in the list
+    const projectId = projects[0].id;
+    return redirect(`/projects/${projectId}`);
 };
-
-export default Index;

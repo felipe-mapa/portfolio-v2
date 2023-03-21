@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+}
+
+#animatedName {
+  background-color: "red";
+}
+
+@keyframes curse_name {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+#animatedName {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  stroke: #740000;
+  /*Felipe*/
+  /*Pavanela*/
+}
+#animatedName #letter_F-1 {
+  animation: curse_name 1s linear forwards 0.4s;
+  stroke-width: 11.5;
+}
+#animatedName #letter_F-2 {
+  animation: curse_name 1s linear forwards 0.56s;
+  stroke-width: 15;
+}
+#animatedName #letter_F-3 {
+  animation: curse_name 1s linear forwards 0.72s;
+  stroke-width: 10;
+}
+#animatedName #letter_e-1 {
+  animation: curse_name 1s linear forwards 0.8s;
+  stroke-width: 15;
+}
+#animatedName #letter_l-1 {
+  animation: curse_name 1s linear forwards 0.96s;
+  stroke-width: 20;
+}
+#animatedName #letter_i-1 {
+  animation: curse_name 1s linear forwards 1.12s;
+  stroke-width: 17;
+}
+#animatedName #letter_i-2 {
+  animation: curse_name 1s linear forwards 1.2s;
+  stroke-width: 17;
+}
+#animatedName #letter_i-3 {
+  animation: curse_name 1s linear forwards 1.28s;
+  stroke-width: 17;
+}
+#animatedName #letter_p-1 {
+  animation: curse_name 1s linear forwards 1.36s;
+  stroke-width: 17;
+}
+#animatedName #letter_p-2 {
+  animation: curse_name 1s linear forwards 1.4s;
+  stroke-width: 17;
+}
+#animatedName #letter_e-2 {
+  animation: curse_name 1s linear forwards 1.52s;
+  stroke-width: 15;
+}
+#animatedName #letter_P-1 {
+  animation: curse_name 1s linear forwards 0.4s;
+  stroke-width: 19;
+}
+#animatedName #letter_P-2 {
+  animation: curse_name 1s linear forwards 0.4s;
+  stroke-width: 19;
+}
+#animatedName #letter_a-1 {
+  animation: curse_name 1s linear forwards 0.56s;
+  stroke-width: 16;
+}
+#animatedName #letter_v {
+  animation: curse_name 1s linear forwards 0.72s;
+  stroke-width: 17;
+}
+#animatedName #letter_a-2 {
+  animation: curse_name 1s linear forwards 0.88s;
+  stroke-width: 16;
+}
+#animatedName #letter_n {
+  animation: curse_name 1s linear forwards 1.04s;
+  stroke-width: 17;
+}
+#animatedName #letter_e-3 {
+  animation: curse_name 1s linear forwards 1.2s;
+  stroke-width: 15;
+}
+#animatedName #letter_l-2 {
+  animation: curse_name 1s linear forwards 1.36s;
+  stroke-width: 20;
+}
+#animatedName #letter_a-3 {
+  animation: curse_name 1s linear forwards 1.52s;
+  stroke-width: 16;
+}
+
+/*# sourceMappingURL=nameAnimation.css.map */

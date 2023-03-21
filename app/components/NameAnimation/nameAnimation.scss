@@ -1,0 +1,92 @@
+$base-speed: 1s;
+$base-delay: 0.8;
+
+body {
+    margin: 0;
+}
+
+#animatedName {
+    background-color: 'red';
+}
+
+//Cursive name Animation
+@keyframes curse_name{
+    100%{
+        stroke-dashoffset: 0;
+    }
+}
+
+@mixin anim ($delay, $stroke-width){
+    animation: curse_name $base-speed linear forwards calc($delay * $base-delay);
+    stroke-width: $stroke-width;
+}
+
+// NAME ANIMATION
+#animatedName {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    stroke: #740000;
+
+    /*Felipe*/
+    #letter_F-1 {
+        @include anim(.5s, 11.5);//0
+    }
+    #letter_F-2 {
+        @include anim(.7s, 15);//2
+    }
+    #letter_F-3 {
+        @include anim(.9s, 10);//4
+    }
+    #letter_e-1 {
+        @include anim(1s, 15);//5
+    }
+    #letter_l-1 {
+        @include anim(1.2s, 20);//7
+    }
+    #letter_i-1 {
+        @include anim(1.4s, 17);//9
+    }
+    #letter_i-2 {
+        @include anim(1.5s, 17);//1
+    }
+    #letter_i-3 {
+        @include anim(1.6s, 17);//1.1
+    }
+    #letter_p-1 {
+        @include anim(1.7s, 17);//1.2
+    }
+    #letter_p-2 {
+        @include anim(1.75s, 17);//1.25
+    }
+    #letter_e-2 {
+        @include anim(1.9s, 15);//1.4
+    }
+    /*Pavanela*/
+    #letter_P-1 {
+        @include anim(.5s, 19);//0
+    }
+    #letter_P-2 {
+        @include anim(.5s, 19);//0
+    }
+    #letter_a-1 {
+        @include anim(.7s, 16);//2
+    }
+    #letter_v {
+        @include anim(.9s, 17);//4
+    }
+    #letter_a-2{
+        @include anim(1.1s, 16);//6
+    }
+    #letter_n{
+        @include anim(1.3s, 17);//8
+    }
+    #letter_e-3 {
+        @include anim(1.5s, 15);//1
+    }
+    #letter_l-2{
+        @include anim(1.7s, 20);//1.2
+    }
+    #letter_a-3 {
+        @include anim(1.9s, 16);//1.4
+    }
+}
