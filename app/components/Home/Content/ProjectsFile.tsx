@@ -7,6 +7,7 @@ import { Tag } from "~/components/CodeElements/Tag";
 import { ReactFile } from "../../CodeElements/ReactFile";
 
 import type { WithChildrenProp } from "~/models/types";
+import { NavLink } from "@remix-run/react";
 
 const imageProps = {
     height: 200,
@@ -14,24 +15,24 @@ const imageProps = {
 };
 
 interface BoxContainerProps extends WithChildrenProp {
-    href: string;
+    projectId: string;
 }
 
-const BoxContainer = ({ children, href }: BoxContainerProps) => (
-    <Box
-        m={2}
-        as="a"
-        href={href}
-        transition="all"
-        _hover={{
-            translate: "1px -1px",
-        }}
-    >
-        {children}
-    </Box>
+const BoxContainer = ({ children, projectId }: BoxContainerProps) => (
+    <NavLink to={`/projects/${projectId}`}>
+        <Box
+            m={2}
+            transition="all"
+            _hover={{
+                translate: "1px -1px",
+            }}
+        >
+            {children}
+        </Box>
+    </NavLink>
 );
 
-const projectIds = ["dartboard-scorer", "flag-finder", "commute-visualiser"];
+const projectIds = ["dartboard-scorer", "commute-visualiser", "flag-finder"];
 
 const ProjectsFile = () => {
     return (
@@ -53,7 +54,7 @@ const ProjectsFile = () => {
                             return (
                                 <BoxContainer
                                     key={project.id}
-                                    href={`/projects/${project.id}`}
+                                    projectId={project.id}
                                 >
                                     <Image
                                         borderRadius="lg"
@@ -66,18 +67,16 @@ const ProjectsFile = () => {
                     </Flex>
                 </Tag>
                 <Tag addSpacingToChildren name="Button">
-                    <Button
-                        as="a"
-                        colorScheme="blue"
-                        m={2}
-                        size="sm"
-                        href="/projects"
-                    >
-                        VIEW ALL
-                        <Box as="span" ml={2}>
-                            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                        </Box>
-                    </Button>
+                    <NavLink to="/projects">
+                        <Button colorScheme="blue" m={2} size="sm">
+                            VIEW ALL
+                            <Box as="span" ml={2}>
+                                <FontAwesomeIcon
+                                    icon={faArrowUpRightFromSquare}
+                                />
+                            </Box>
+                        </Button>
+                    </NavLink>
                 </Tag>
             </Tag>
         </ReactFile>

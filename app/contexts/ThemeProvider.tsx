@@ -1,5 +1,4 @@
 import { useTimeout } from "usehooks-ts";
-import { useLocation } from "@remix-run/react";
 import { Box, Flex, Spinner } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState, useEffect, useContext } from "react";
@@ -43,12 +42,8 @@ const BackgroundBase = ({ children }: WithChildrenProp) => (
 const ThemeContext = React.createContext<ThemeContextValue>(defaultTheme);
 
 const ThemeProvider = ({ children }: WithChildrenProp) => {
-    const { pathname } = useLocation();
-    const isHomeScreen = pathname === "/";
     const [theme, setTheme] = useState<ThemeState | null>(null);
-    const [isAnimationFinished, setIsAnimationFinished] = useState(
-        !isHomeScreen
-    );
+    const [isAnimationFinished, setIsAnimationFinished] = useState(false);
 
     const updateTheme = (themeName: ThemeName) => {
         setTheme({
@@ -85,7 +80,7 @@ const ThemeProvider = ({ children }: WithChildrenProp) => {
         localStorage?.setItem("globalTheme", theme.name);
     }, [theme]);
 
-    useTimeout(() => setIsAnimationFinished(true), 2500);
+    useTimeout(() => setIsAnimationFinished(true), 2400);
 
     if (!theme) {
         return (

@@ -41,7 +41,7 @@ const projects: Project[] = [
         name: "NZ Commute Data Visualiser",
         description: "",
         iconImage: "",
-        thumbnailImage: FlagFinderThumbnail,
+        thumbnailImage: CommuteThumbnail,
         githubUrl: "",
     },
     {
@@ -50,7 +50,7 @@ const projects: Project[] = [
         name: "Flag Finder",
         description: "",
         iconImage: "",
-        thumbnailImage: CommuteThumbnail,
+        thumbnailImage: FlagFinderThumbnail,
         githubUrl: "",
         googlePlayUrl: "",
         appStoreUrl: "",
