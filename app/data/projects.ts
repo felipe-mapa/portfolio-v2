@@ -2,7 +2,14 @@ import DartboardThumbnail from "~/assets/images/projects/dartboard-scorer/thumbn
 import FlagFinderThumbnail from "~/assets/images/projects/flag-finder/thumbnail.png";
 import CommuteThumbnail from "~/assets/images/projects/commute-visualiser/thumbnail.png";
 
+import DartboardIcon from "~/assets/images/projects/dartboard-scorer/icon.png";
+import FlagFinderIcon from "~/assets/images/projects/flag-finder/icon.png";
+import CommuteIcon from "~/assets/images/projects/commute-visualiser/icon.png";
+
+export type ProjectType = "web" | "mobile";
+
 interface ProjectBase {
+    type: ProjectType;
     id: string;
     name: string;
     description: string;
@@ -29,7 +36,7 @@ const projects: Project[] = [
         id: "dartboard-scorer",
         name: "Dartboard Scorer",
         description: "",
-        iconImage: "",
+        iconImage: DartboardIcon,
         thumbnailImage: DartboardThumbnail,
         githubUrl: "",
         googlePlayUrl: "",
@@ -40,7 +47,7 @@ const projects: Project[] = [
         id: "commute-visualiser",
         name: "NZ Commute Data Visualiser",
         description: "",
-        iconImage: "",
+        iconImage: CommuteIcon,
         thumbnailImage: CommuteThumbnail,
         githubUrl: "",
     },
@@ -49,7 +56,7 @@ const projects: Project[] = [
         id: "flag-finder",
         name: "Flag Finder",
         description: "",
-        iconImage: "",
+        iconImage: FlagFinderIcon,
         thumbnailImage: FlagFinderThumbnail,
         githubUrl: "",
         googlePlayUrl: "",

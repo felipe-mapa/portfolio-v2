@@ -93,7 +93,7 @@ const ThemeProvider = ({ children }: WithChildrenProp) => {
     return (
         <ThemeContext.Provider value={{ theme, updateTheme }}>
             {children}
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
                 {!isAnimationFinished && (
                     <Box position="absolute" top={0} zIndex={999}>
                         <motion.div
