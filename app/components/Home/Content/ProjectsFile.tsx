@@ -68,13 +68,17 @@ const ProjectsFile = () => {
                 </Tag>
                 <Tag addSpacingToChildren name="Button">
                     <NavLink to="/projects">
-                        <Button colorScheme="blue" m={2} size="sm">
-                            VIEW ALL
-                            <Box as="span" ml={2}>
+                        <Button
+                            colorScheme="blue"
+                            m={2}
+                            size="sm"
+                            rightIcon={
                                 <FontAwesomeIcon
                                     icon={faArrowUpRightFromSquare}
                                 />
-                            </Box>
+                            }
+                        >
+                            VIEW ALL
                         </Button>
                     </NavLink>
                 </Tag>

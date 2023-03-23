@@ -1,8 +1,8 @@
-import { Box, Flex, Image, Stack } from "@chakra-ui/react";
+import { Box, Flex, Image } from "@chakra-ui/react";
 import {
     faClipboardList,
     faFileCode,
-    faMicrochip,
+    // faKeyboard,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavItem } from "./NavItem";
 
@@ -20,9 +20,7 @@ const ActivityBar = () => {
         >
             <Box>
                 <NavItem pathname="/" title="Home" icon={faFileCode} />
-                {/* TODO: Find a nicer skills icon */}
-                <NavItem pathname="/skills" title="Skills" icon={faMicrochip} />
-                {/* TODO: Find a nicer projects icon */}
+                {/* <NavItem pathname="/skills" title="Skills" icon={faKeyboard} /> */}
                 <NavItem
                     pathname="/projects"
                     title="Projects"
