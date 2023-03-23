@@ -6,6 +6,7 @@ import { SkillsFile } from "./Content/SkillsFile";
 import { AboutFile } from "./Content/AboutFile";
 import { WelcomeFile } from "./Content/WelcomeFile";
 import { ProjectsFile } from "./Content/ProjectsFile";
+import { UseContactFile } from "./Content/UseContactFile";
 
 // Needs to receive `activeTab` as prop to sync animation
 const Content = ({ activeTab }: { activeTab: string }) => {
@@ -21,7 +22,7 @@ const Content = ({ activeTab }: { activeTab: string }) => {
         case "skillsFile":
             return <SkillsFile />;
         case "useContactFile":
-            return <Text color="white">useContact</Text>;
+            return <UseContactFile />;
 
         default:
             // TODO

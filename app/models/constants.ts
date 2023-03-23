@@ -2,6 +2,11 @@ import { flatten } from "lodash";
 import type { ProjectTree } from "./types";
 import type { ProjectItemFile, ProjectItem } from "~/models/types";
 
+export const profileLinks = {
+    linkedIn: "https://www.linkedin.com/in/felipe-pavanela",
+    gitHub: "https://github.com/felipe-mapa",
+};
+
 export const projectTree: ProjectTree = {
     title: "felipe_pavanela",
     items: [

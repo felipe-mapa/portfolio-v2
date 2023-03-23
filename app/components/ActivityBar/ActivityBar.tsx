@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { NavItem } from "./NavItem";
 
+import { profileLinks } from "~/models/constants";
 import GithubLogo from "~/assets/images/logos/github.png";
 import LinkedInLogo from "~/assets/images/logos/linkedin.png";
 
@@ -28,20 +29,10 @@ const ActivityBar = () => {
                 />
             </Box>
             <Flex direction="column" alignItems="center" pb={2}>
-                <Box
-                    as="a"
-                    p={3}
-                    target="_blank"
-                    href="https://www.linkedin.com/in/felipe-pavanela"
-                >
+                <Box as="a" p={3} target="_blank" href={profileLinks.linkedIn}>
                     <Image src={LinkedInLogo} width="10" height="10" />
                 </Box>
-                <Box
-                    as="a"
-                    p={3}
-                    target="_blank"
-                    href="https://github.com/felipe-mapa"
-                >
+                <Box as="a" p={3} target="_blank" href={profileLinks.gitHub}>
                     <Image src={GithubLogo} width="10" height="10" />
                 </Box>
             </Flex>
