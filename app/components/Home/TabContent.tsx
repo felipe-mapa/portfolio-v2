@@ -6,6 +6,7 @@ import { useTabSystemContext } from "~/contexts/TabSystemProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
+import { SkillsFile } from "./Content/SkillsFile";
 import { AboutFile } from "./Content/AboutFile";
 import { WelcomeFile } from "./Content/WelcomeFile";
 import { ProjectsFile } from "./Content/ProjectsFile";
@@ -24,7 +25,7 @@ const Content = ({ activeTab }: { activeTab: string }) => {
         case "projectsFile":
             return <ProjectsFile />;
         case "skillsFile":
-            return <Text color="white">skills</Text>;
+            return <SkillsFile />;
         case "useContactFile":
             return <Text color="white">useContact</Text>;
 

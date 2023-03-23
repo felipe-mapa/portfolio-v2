@@ -45,6 +45,7 @@ interface CostumeColors {
         declaration: string; // const let interface extends
         // type: string; // ComponentProps // not needed yet
         // number: string; // Not needed yet
+        type: string; // typescript type and interface
         attribute: string; // style={}
         bracket: {
             color1: string;
@@ -75,7 +76,7 @@ const darkV1Colors: CostumeColors = {
         background: "#3E3E3E",
         activeBorder: "#FFFFFF",
         activeBackground: "#1E1E1E",
-        inactiveForeground: "#676767",
+        inactiveForeground: "#919191",
         foreground: "#FFFFFF",
     },
     // Editor
@@ -85,7 +86,7 @@ const darkV1Colors: CostumeColors = {
     },
     sideBar: {
         background: "#333333",
-        iconForeground: "#676767",
+        iconForeground: "#919191",
         foreground: "#FFFFFF",
         activeItemBackground: "#676767",
     },
@@ -96,7 +97,7 @@ const darkV1Colors: CostumeColors = {
         activeBackground: "#1E1E1E",
         inactiveBackground: "#3E3E3E",
         activeForeground: "#FFFFFF",
-        inactiveForeground: "#676767",
+        inactiveForeground: "#919191",
     },
     file: {
         comment: "#6A9955",
@@ -110,8 +111,9 @@ const darkV1Colors: CostumeColors = {
         declaration: "#569CD6",
         attribute: "#9CDCFE",
         component: "#4EC9B0",
+        type: "#4EC9B0",
         bracket: {
-            color1: "#FFE128",
+            color1: "#f7d607",
             color2: "#C586C0",
             color3: "#569CD6",
         },

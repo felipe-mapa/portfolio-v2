@@ -18,13 +18,13 @@ const TypeFileIcon = ({ fileType, boxSize = 5 }: TypeFileIconProps) => {
         case "tsx":
             return (
                 <Box boxSize={boxSize}>
-                    <Image src={ReactLogo} alt="react logo" />
+                    <Image src={ReactLogo} alt="react logo" draggable={false} />
                 </Box>
             );
         case "ts":
             return (
                 <Box boxSize={boxSize}>
-                    <Image src={TsLogo} alt="ts logo" />
+                    <Image src={TsLogo} alt="ts logo" draggable={false} />
                 </Box>
             );
         default:

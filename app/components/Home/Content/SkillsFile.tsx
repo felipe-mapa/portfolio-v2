@@ -1,23 +1,69 @@
-import { Text } from "@chakra-ui/react";
-import { Tag } from "~/components/CodeElements/Tag";
-import { ReactFile } from "../../CodeElements/ReactFile";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import { ScreenContainer } from "~/components/CodeElements/ScreenContainer";
+import { START_MARGIN } from "~/components/CodeElements/Tag";
+
+const skills = [
+    "React",
+    "Typescript",
+    "PHP",
+    "ReactNative",
+    "MySQL",
+    "HTML",
+    "CSS",
+    "SASS",
+    "JavaScript",
+    "Git",
+    "Docker",
+];
 
 const SkillsFile = () => {
     return (
-        <ReactFile name="Skills">
-            <Tag>
-                <Tag addSpacingToChildren name="p">
-                    <Text
-                        fontSize="2xl"
-                        color="editor.foreground"
-                        maxWidth="600px"
-                        lineHeight={"8"}
-                    >
-                        Skills
+        <ScreenContainer>
+            <Flex
+                position="relative"
+                py={3}
+                px={5}
+                direction="column"
+                height="100%"
+            >
+                <Text color="editor.foreground" style={{ wordSpacing: "5px" }}>
+                    <Box as="span" color="file.keyword">
+                        export{" "}
+                    </Box>
+                    <Box as="span" color="file.declaration">
+                        const{" "}
+                    </Box>
+                    <Box as="span" color="file.variable">
+                        {"skillSet"}
+                    </Box>
+                    :
+                    <Box as="span" color="file.component">
+                        {" Skill"}
+                    </Box>
+                    <Box as="span" color="file.declaration">
+                        {"[] "}
+                    </Box>
+                    =
+                    <Box as="span" color="file.bracket.color1">
+                        {" ["}
+                    </Box>
+                </Text>
+                {skills.map((skill) => (
+                    <Text key={skill} color="white" ps={START_MARGIN}>
+                        <Box as="span" color="file.string">
+                            "{skill}"
+                        </Box>
+                        ,
                     </Text>
-                </Tag>
-            </Tag>
-        </ReactFile>
+                ))}
+                <Text color="editor.foreground" style={{ wordSpacing: "5px" }}>
+                    <Box as="span" color="file.bracket.color1">
+                        {"]"}
+                    </Box>
+                    ;
+                </Text>
+            </Flex>
+        </ScreenContainer>
     );
 };
 
