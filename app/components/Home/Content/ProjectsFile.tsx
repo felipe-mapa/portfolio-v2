@@ -41,7 +41,10 @@ const ProjectsFile = () => {
                 <Tag
                     addSpacingToChildren
                     name="Flex"
-                    tagProps={[{ key: "direction", value: "row" }]}
+                    tagProps={[
+                        { key: "direction", value: "row" },
+                        { key: "flexWrap", value: "wrap" },
+                    ]}
                 >
                     <Flex my={1} direction="row" flexWrap="wrap">
                         {projectIds.map((projectId) => {

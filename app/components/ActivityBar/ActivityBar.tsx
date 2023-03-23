@@ -1,12 +1,7 @@
 import { Box, Flex, Image } from "@chakra-ui/react";
-import {
-    faClipboardList,
-    faFileCode,
-    // faKeyboard,
-} from "@fortawesome/free-solid-svg-icons";
 import { NavItem } from "./NavItem";
 
-import { profileLinks } from "~/models/constants";
+import { menuItems, profileLinks } from "~/models/constants";
 import GithubLogo from "~/assets/images/logos/github.png";
 import LinkedInLogo from "~/assets/images/logos/linkedin.png";
 
@@ -20,13 +15,9 @@ const ActivityBar = () => {
             zIndex={2}
         >
             <Box>
-                <NavItem pathname="/" title="Home" icon={faFileCode} />
-                {/* <NavItem pathname="/skills" title="Skills" icon={faKeyboard} /> */}
-                <NavItem
-                    pathname="/projects"
-                    title="Projects"
-                    icon={faClipboardList}
-                />
+                {menuItems.map((item) => (
+                    <NavItem key={item.pathname} {...item} />
+                ))}
             </Box>
             <Flex direction="column" alignItems="center" pb={2}>
                 <Box as="a" p={3} target="_blank" href={profileLinks.linkedIn}>

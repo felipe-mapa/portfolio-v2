@@ -2,15 +2,9 @@ import { Flex, Text } from "@chakra-ui/react";
 import { NavLink, useLocation } from "@remix-run/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { type IconDefinition } from "@fortawesome/free-regular-svg-icons";
+import type { NavItemProps } from "./NavItem";
 
-export interface NavItemProps {
-    title: string;
-    icon: IconDefinition;
-    pathname: string;
-}
-
-const NavItem = (props: NavItemProps) => {
+const MobileNavItem = (props: NavItemProps) => {
     const location = useLocation();
 
     const isSelected = (() => {
@@ -22,30 +16,33 @@ const NavItem = (props: NavItemProps) => {
     })();
 
     return (
-        <NavLink to={props.pathname}>
+        <NavLink to={props.pathname} style={{ width: "100%", height: "100%" }}>
             <Flex
                 width="100%"
+                height="100%"
                 alignItems="center"
+                justifyContent="center"
                 direction="column"
-                p={3}
                 backgroundColor={
                     isSelected ? "activityBar.activeBackground" : "transparent"
                 }
-                borderLeftColor={
+                borderBottomColor={
                     isSelected ? "activityBar.activeBorder" : "transparent"
                 }
-                borderLeftWidth={2}
+                borderBottomWidth={2}
                 color={
                     isSelected
                         ? "activityBar.foreground"
                         : "activityBar.inactiveForeground"
                 }
             >
-                <FontAwesomeIcon icon={props.icon} size="2x" />
-                <Text>{props.title}</Text>
+                <FontAwesomeIcon icon={props.icon} size="lg" />
+                <Text mt={1} fontSize={12} lineHeight={1}>
+                    {props.title}
+                </Text>
             </Flex>
         </NavLink>
     );
 };
 
-export { NavItem };
+export { MobileNavItem };

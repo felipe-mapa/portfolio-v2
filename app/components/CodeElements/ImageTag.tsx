@@ -1,5 +1,7 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import { START_MARGIN } from "./Tag";
+
+import { getTagStartMargin } from "./Tag";
+import { useWebsiteBreakpoints } from "~/hooks/useWebsiteBreakpoints";
 
 interface TagProps {
     imageSource: string;
@@ -7,9 +9,10 @@ interface TagProps {
 
 const ImageTag = (props: TagProps) => {
     const { imageSource } = props;
+    const { isMobile } = useWebsiteBreakpoints();
 
     return (
-        <Flex ms={START_MARGIN} alignItems="center">
+        <Flex ms={getTagStartMargin(isMobile)} alignItems="center">
             <Text color="file.tagPunctuation">
                 {"<"}
                 <Box as="span" color="file.tagName">

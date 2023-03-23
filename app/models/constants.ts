@@ -1,11 +1,37 @@
 import { flatten } from "lodash";
+
+import {
+    faClipboardList,
+    faFileCode,
+    // faKeyboard,
+} from "@fortawesome/free-solid-svg-icons";
+
 import type { ProjectTree } from "./types";
 import type { ProjectItemFile, ProjectItem } from "~/models/types";
+import type { NavItemProps } from "~/components/ActivityBar/NavItem";
 
 export const profileLinks = {
     linkedIn: "https://www.linkedin.com/in/felipe-pavanela",
     gitHub: "https://github.com/felipe-mapa",
 };
+
+export const menuItems: NavItemProps[] = [
+    {
+        title: "Home",
+        pathname: "/",
+        icon: faFileCode,
+    },
+    // {
+    //     title: "Skills",
+    //     pathname: "/skills",
+    //     icon: faKeyboard,
+    // },
+    {
+        title: "Projects",
+        pathname: "/projects",
+        icon: faClipboardList,
+    },
+];
 
 export const projectTree: ProjectTree = {
     title: "felipe_pavanela",

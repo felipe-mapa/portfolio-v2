@@ -7,6 +7,7 @@ import {
     useState,
 } from "react";
 import { Box, Text } from "@chakra-ui/react";
+import { useWebsiteBreakpoints } from "~/hooks/useWebsiteBreakpoints";
 
 import type { MouseEvent } from "react";
 import type { WithChildrenProp } from "~/models/types";
@@ -18,11 +19,15 @@ const binaryText =
 const BLUR_SIZE = 150;
 
 const ScreenContainer = ({ children }: WithChildrenProp) => {
+    const { isMobile } = useWebsiteBreakpoints();
     const containerRef = useRef<HTMLDivElement>(null);
     const [maskPosition, setMaskPosition] = useState("");
     const [containerSize, setContainerSize] = useState({ height: 0, width: 0 });
 
     const onMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+        if (isMobile) {
+            return;
+        }
         const yPosition = `calc(${e.clientY}px - 50vh - ${BLUR_SIZE / 2}px)`;
         const xPosition = `calc(${e.clientX}px - 50vw - ${BLUR_SIZE / 2}px)`;
 
@@ -30,6 +35,9 @@ const ScreenContainer = ({ children }: WithChildrenProp) => {
     };
 
     const onMouseLeave = () => {
+        if (isMobile) {
+            return;
+        }
         setMaskPosition("");
     };
 
@@ -69,8 +77,15 @@ const ScreenContainer = ({ children }: WithChildrenProp) => {
         };
     }, [containerSize.height, containerSize.width, maskPosition]);
 
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        // Scroll to top
+        ref.current?.scrollIntoView();
+    }, []);
+
     return (
-        <Box onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
+        <Box ref={ref} onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
             <Box
                 ref={containerRef}
                 position="absolute"

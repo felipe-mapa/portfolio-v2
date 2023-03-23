@@ -1,7 +1,8 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { NavigationButtons } from "../NavigationButtons";
-import { START_MARGIN } from "~/components/CodeElements/Tag";
+import { getTagStartMargin } from "~/components/CodeElements/Tag";
 import { ScreenContainer } from "~/components/CodeElements/ScreenContainer";
+import { useWebsiteBreakpoints } from "~/hooks/useWebsiteBreakpoints";
 
 const skills = [
     "React",
@@ -18,6 +19,7 @@ const skills = [
 ];
 
 const SkillsFile = () => {
+    const { isMobile } = useWebsiteBreakpoints();
     return (
         <ScreenContainer>
             <Flex
@@ -50,7 +52,11 @@ const SkillsFile = () => {
                     </Box>
                 </Text>
                 {skills.map((skill) => (
-                    <Text key={skill} color="white" ps={START_MARGIN}>
+                    <Text
+                        key={skill}
+                        color="white"
+                        ps={getTagStartMargin(isMobile)}
+                    >
                         <Box as="span" color="file.string">
                             "{skill}"
                         </Box>

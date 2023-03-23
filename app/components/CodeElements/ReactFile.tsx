@@ -13,8 +13,8 @@ const ReactFile = ({ name, children }: ReactFileProps) => {
         <ScreenContainer>
             <Flex
                 position="relative"
-                py={3}
-                px={5}
+                p={5}
+                pt={3}
                 direction="column"
                 height="100%"
             >

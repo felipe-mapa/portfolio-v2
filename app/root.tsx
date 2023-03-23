@@ -7,11 +7,16 @@ import {
     Scripts,
     ScrollRestoration,
 } from "@remix-run/react";
-import { Footer } from "./components/Footer/Footer";
+import {
+    Footer,
+    FOOTER_HEIGHT,
+    FOOTER_MOBILE_HEIGHT,
+} from "./components/Footer/Footer";
 import { ActivityBar } from "./components/ActivityBar/ActivityBar";
 import { ThemeProvider, useThemeContext } from "./contexts/ThemeProvider";
 
 import rootStyle from "./root.css";
+import { useWebsiteBreakpoints } from "./hooks/useWebsiteBreakpoints";
 import nameAnimationStyle from "./components/NameAnimation/nameAnimation.css";
 
 import type { MetaFunction } from "@remix-run/node";
@@ -63,18 +68,26 @@ const WithTheme = ({ children }: WithChildrenProp) => {
     return <ChakraProvider theme={theme.value}>{children}</ChakraProvider>;
 };
 
-const App = () => (
-    <Document>
-        <WithTheme>
-            <Box h="screenHeight" backgroundColor="editor.background">
-                <Flex height="calc(100vh - 24px)">
-                    <ActivityBar />
-                    <Outlet />
-                </Flex>
-                <Footer />
-            </Box>
-        </WithTheme>
-    </Document>
-);
+const App = () => {
+    const { isMobile } = useWebsiteBreakpoints();
+
+    const height = isMobile
+        ? `calc(100vh - ${FOOTER_MOBILE_HEIGHT})`
+        : `calc(100vh - ${FOOTER_HEIGHT})`;
+
+    return (
+        <Document>
+            <WithTheme>
+                <Box h="screenHeight" backgroundColor="editor.background">
+                    <Flex height={height}>
+                        {!isMobile && <ActivityBar />}
+                        <Outlet />
+                    </Flex>
+                    <Footer />
+                </Box>
+            </WithTheme>
+        </Document>
+    );
+};
 
 export default App;
