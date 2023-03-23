@@ -1,6 +1,7 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { ScreenContainer } from "~/components/CodeElements/ScreenContainer";
+import { NavigationButtons } from "../NavigationButtons";
 import { START_MARGIN } from "~/components/CodeElements/Tag";
+import { ScreenContainer } from "~/components/CodeElements/ScreenContainer";
 
 const skills = [
     "React",
@@ -56,12 +57,17 @@ const SkillsFile = () => {
                         ,
                     </Text>
                 ))}
-                <Text color="editor.foreground" style={{ wordSpacing: "5px" }}>
+                <Text
+                    color="editor.foreground"
+                    style={{ wordSpacing: "5px" }}
+                    mb={5}
+                >
                     <Box as="span" color="file.bracket.color1">
                         {"]"}
                     </Box>
                     ;
                 </Text>
+                <NavigationButtons />
             </Flex>
         </ScreenContainer>
     );

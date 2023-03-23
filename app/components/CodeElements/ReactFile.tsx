@@ -1,5 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { ScreenContainer } from "./ScreenContainer";
+import { NavigationButtons } from "../Home/NavigationButtons";
 
 import type { WithChildrenProp } from "~/models/types";
 
@@ -73,6 +74,7 @@ const ReactFile = ({ name, children }: ReactFileProps) => {
                     {/* Move component slightly higher */}
                     <Box />
                 </Flex>
+                <NavigationButtons />
             </Flex>
         </ScreenContainer>
     );
