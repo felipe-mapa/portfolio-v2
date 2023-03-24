@@ -1,12 +1,12 @@
 import type { SvgIconProps } from "./types";
 
 const GitHub = (props: SvgIconProps) => {
-    const { color = "currentColor", width = "1024", height = "1024" } = props;
+    const { color = "currentColor", size = 1024 } = props;
 
     return (
         <svg
-            width={width}
-            height={height}
+            width={size}
+            height={size}
             viewBox={`0 0 1024 1024`}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

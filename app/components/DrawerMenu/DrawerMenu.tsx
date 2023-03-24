@@ -9,10 +9,12 @@ import {
     Flex,
     Text,
 } from "@chakra-ui/react";
+import { NavLink } from "@remix-run/react";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import type { WithChildrenProp } from "~/models/types";
+import { PortfolioLogo } from "../Icons/PortfolioLogo";
 import { SocialLinks } from "./SocialLinks";
 
 interface DrawerMenuProps extends WithChildrenProp {
@@ -31,11 +33,14 @@ const DrawerMenu = (props: DrawerMenuProps) => {
         <>
             <Flex
                 zIndex={2}
-                justifyContent="flex-end"
+                justifyContent="space-between"
                 backgroundColor="sideBar.background"
                 px={5}
                 py={3}
             >
+                <NavLink to="/">
+                    <PortfolioLogo size={60} />
+                </NavLink>
                 <Box as="button" onClick={onOpen}>
                     <Flex alignItems="center">
                         {title && (

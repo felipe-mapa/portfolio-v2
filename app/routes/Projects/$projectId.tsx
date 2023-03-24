@@ -105,11 +105,7 @@ const ProjectId = () => {
                                     target="_blank"
                                     href={project.githubUrl}
                                 >
-                                    <GitHub
-                                        width={25}
-                                        height={25}
-                                        color="#000000"
-                                    />
+                                    <GitHub size={25} color="#000000" />
                                 </Button>
                             )}
                             {project.type === "web" ? (

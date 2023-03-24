@@ -29,7 +29,7 @@ const MobileNavItem = (props: NavItemProps) => {
                 borderBottomColor={
                     isSelected ? "activityBar.activeBorder" : "transparent"
                 }
-                borderBottomWidth={2}
+                borderBottomWidth={3}
                 color={
                     isSelected
                         ? "activityBar.foreground"

@@ -21,10 +21,10 @@ const SocialLinks = ({ iconSize = defaultIconSize }: SocialLinksProps) => {
     return (
         <Flex flexDirection={"column"} alignItems="flex-end" mb={4}>
             <Box {...containerProps} href={profileLinks.linkedIn}>
-                <LinkedIn height={iconSize} width={iconSize} />
+                <LinkedIn size={iconSize} />
             </Box>
             <Box {...containerProps} href={profileLinks.gitHub}>
-                <GitHub height={iconSize} width={iconSize} />
+                <GitHub size={iconSize} />
             </Box>
         </Flex>
     );

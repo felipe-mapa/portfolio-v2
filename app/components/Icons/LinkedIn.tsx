@@ -1,13 +1,13 @@
 import type { SvgIconProps } from "./types";
 
 const LinkedIn = (props: SvgIconProps) => {
-    const { color = "currentColor", width = "455", height = "455" } = props;
+    const { color = "currentColor", size = 455 } = props;
 
     return (
         <svg
             fill={color}
-            height={height}
-            width={width}
+            height={size}
+            width={size}
             version="1.1"
             id="Layer_1"
             xmlns="http://www.w3.org/2000/svg"
