@@ -1,8 +1,11 @@
 import { Heading, Text } from "@chakra-ui/react";
 import { Tag } from "~/components/CodeElements/Tag";
+import { useWebsiteBreakpoints } from "~/hooks/useWebsiteBreakpoints";
 import { ReactFile } from "../../CodeElements/ReactFile";
 
 const WelcomeFile = () => {
+    const { isMobile } = useWebsiteBreakpoints();
+
     return (
         <ReactFile name="Welcome">
             <Tag>
@@ -25,7 +28,10 @@ const WelcomeFile = () => {
                     </Heading>
                 </Tag>
                 <Tag addSpacingToChildren name="p">
-                    <Text fontSize="4xl" color="editor.foreground">
+                    <Text
+                        fontSize={isMobile ? "2xl" : "4xl"}
+                        color="editor.foreground"
+                    >
                         Full Stack Software Engineer
                     </Text>
                 </Tag>

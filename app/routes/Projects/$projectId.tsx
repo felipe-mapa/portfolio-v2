@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { useParams } from "@remix-run/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Flex, Image, Text } from "@chakra-ui/react";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
-import { getProjectById } from "~/data/projects";
 import { SideBar } from "~/components/Projects/SideBar";
+import { getProjectById, projects } from "~/data/projects";
+import { DrawerMenu } from "~/components/DrawerMenu/DrawerMenu";
+import { ProjectItem } from "~/components/Projects/ProjectItem";
+import { useWebsiteBreakpoints } from "~/hooks/useWebsiteBreakpoints";
 
 import GithubLogo from "~/assets/images/logos/github.png";
 
@@ -34,16 +38,39 @@ const ProjectButtonLink = ({ url, title }: ProjectButtonLinkProps) => {
 
 const ProjectId = () => {
     const { projectId = "" } = useParams();
+    const { isWeb } = useWebsiteBreakpoints();
+
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const project = getProjectById(projectId);
+
+    const openDrawer = () => setIsDrawerOpen(true);
+    const closeDrawer = () => setIsDrawerOpen(false);
 
     if (!project) {
         return null;
     }
 
     return (
-        <Flex width="100%">
-            <SideBar />
+        <Flex width="100%" direction={isWeb ? "row" : "column"}>
+            {isWeb ? (
+                <SideBar />
+            ) : (
+                <DrawerMenu
+                    onClose={closeDrawer}
+                    onOpen={openDrawer}
+                    isOpen={isDrawerOpen}
+                >
+                    {projects.map((project) => (
+                        <ProjectItem
+                            key={project.id}
+                            onClick={closeDrawer}
+                            project={project}
+                            projectSelected={projectId}
+                        />
+                    ))}
+                </DrawerMenu>
+            )}
             <Flex direction="column" p={5} ps={10} flex={1}>
                 <Flex width="100%">
                     <Image
