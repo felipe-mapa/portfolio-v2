@@ -47,6 +47,7 @@ const ProjectItem = ({
                     <Text fontWeight="bold">{project.name}</Text>
                     <Text
                         fontWeight="bold"
+                        letterSpacing={"wider"}
                         color={
                             isSelected
                                 ? "sideBar.background"

@@ -10,7 +10,7 @@ import { DrawerMenu } from "~/components/DrawerMenu/DrawerMenu";
 import { ProjectItem } from "~/components/Projects/ProjectItem";
 import { useWebsiteBreakpoints } from "~/hooks/useWebsiteBreakpoints";
 
-import GithubLogo from "~/assets/images/logos/github.png";
+import { GitHub } from "~/components/Icons/GitHub";
 
 interface ProjectButtonLinkProps {
     url?: string;
@@ -38,7 +38,7 @@ const ProjectButtonLink = ({ url, title }: ProjectButtonLinkProps) => {
 
 const ProjectId = () => {
     const { projectId = "" } = useParams();
-    const { isWeb } = useWebsiteBreakpoints();
+    const { isWeb, isMobile } = useWebsiteBreakpoints();
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -57,30 +57,43 @@ const ProjectId = () => {
                 <SideBar />
             ) : (
                 <DrawerMenu
+                    title="Projects list"
                     onClose={closeDrawer}
                     onOpen={openDrawer}
                     isOpen={isDrawerOpen}
                 >
-                    {projects.map((project) => (
-                        <ProjectItem
-                            key={project.id}
-                            onClick={closeDrawer}
-                            project={project}
-                            projectSelected={projectId}
-                        />
-                    ))}
+                    <Flex flexDirection="column">
+                        {projects.map((project) => (
+                            <ProjectItem
+                                key={project.id}
+                                onClick={closeDrawer}
+                                project={project}
+                                projectSelected={projectId}
+                            />
+                        ))}
+                    </Flex>
                 </DrawerMenu>
             )}
-            <Flex direction="column" p={5} ps={10} flex={1}>
-                <Flex width="100%">
+            <Flex direction="column" p={5} ps={isMobile ? 5 : 10} flex={1}>
+                <Flex
+                    width="100%"
+                    direction={isMobile ? "column" : "row"}
+                    alignItems={isMobile ? "center" : "flex-start"}
+                >
                     <Image
                         src={project.iconImage}
                         borderRadius={"lg"}
                         width="32"
                         height="32"
                     />
-                    <Flex direction="column" ps={5}>
-                        <Text fontSize={40} color={"white"}>
+                    <Flex direction="column" ps={isMobile ? 0 : 5} width="100%">
+                        <Text
+                            py={2}
+                            fontSize={40}
+                            lineHeight={1.1}
+                            color={"white"}
+                            textAlign={isMobile ? "center" : "start"}
+                        >
                             {project.name}
                         </Text>
                         <Flex mt={2}>
@@ -92,10 +105,10 @@ const ProjectId = () => {
                                     target="_blank"
                                     href={project.githubUrl}
                                 >
-                                    <Image
-                                        src={GithubLogo}
-                                        width={6}
-                                        height={6}
+                                    <GitHub
+                                        width={25}
+                                        height={25}
+                                        color="#000000"
                                     />
                                 </Button>
                             )}

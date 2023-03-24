@@ -11,6 +11,8 @@ const ImageTag = (props: TagProps) => {
     const { imageSource } = props;
     const { isMobile } = useWebsiteBreakpoints();
 
+    const imageSize = isMobile ? 32 : 40;
+
     return (
         <Flex ms={getTagStartMargin(isMobile)} alignItems="center">
             <Text color="file.tagPunctuation">
@@ -28,7 +30,12 @@ const ImageTag = (props: TagProps) => {
                     "
                 </Box>
             </Text>
-            <Image src={imageSource} width="40" height="40" rounded="full" />
+            <Image
+                src={imageSource}
+                width={imageSize}
+                height={imageSize}
+                rounded="full"
+            />
             <Text color="file.tagPunctuation">
                 <Box as="span" color="file.string">
                     "

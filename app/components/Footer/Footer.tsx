@@ -8,6 +8,8 @@ import { useWebsiteBreakpoints } from "~/hooks/useWebsiteBreakpoints";
 export const FOOTER_HEIGHT = "24px";
 export const FOOTER_MOBILE_HEIGHT = "55px";
 
+const year = new Date().getFullYear();
+
 const Footer = () => {
     const { updateTheme } = useThemeContext();
     const { isMobile } = useWebsiteBreakpoints();
@@ -58,6 +60,9 @@ const Footer = () => {
                         LIGHT
                     </Button> */}
                     </Stack>
+                    <Text textAlign="end" px={2} color="white" fontSize={14}>
+                        © Felipe Pavanela {year}
+                    </Text>
                     <Tooltip
                         label="Oh no! You found a bug on my website!"
                         placement="top-start"

@@ -36,7 +36,7 @@ const MobileNavItem = (props: NavItemProps) => {
                         : "activityBar.inactiveForeground"
                 }
             >
-                <FontAwesomeIcon icon={props.icon} size="lg" />
+                <FontAwesomeIcon icon={props.icon} size="xl" />
                 <Text mt={1} fontSize={12} lineHeight={1}>
                     {props.title}
                 </Text>

@@ -88,7 +88,7 @@ const darkV1Colors: CostumeColors = {
         background: "#333333",
         iconForeground: "#919191",
         foreground: "#FFFFFF",
-        activeItemBackground: "#676767",
+        activeItemBackground: "#757575",
     },
     editorGroupHeader: {
         tabsBackground: "#363636",

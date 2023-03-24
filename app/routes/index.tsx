@@ -37,6 +37,7 @@ const CollapsibleItemsDrawerMenu = () => {
 
     return (
         <DrawerMenu
+            title="Pages"
             onClose={closeDrawer}
             onOpen={openDrawer}
             isOpen={isDrawerOpen}
