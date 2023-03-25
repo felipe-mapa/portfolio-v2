@@ -34,8 +34,8 @@ const PortfolioLogo = (props: SvgIconProps) => {
                     id="FP"
                     transform="translate(4199 -238)"
                     fill={color}
-                    font-size="100"
-                    font-family="Monaco"
+                    fontSize="100"
+                    fontFamily="Monaco"
                 >
                     <tspan x="0" y="0">
                         FP
@@ -46,8 +46,8 @@ const PortfolioLogo = (props: SvgIconProps) => {
                     data-name="/"
                     transform="translate(4300 -238)"
                     fill={color}
-                    font-size="100"
-                    font-family="Monaco"
+                    fontSize="100"
+                    fontFamily="Monaco"
                 >
                     <tspan x="0" y="0">
                         /
@@ -63,8 +63,8 @@ const PortfolioLogo = (props: SvgIconProps) => {
                         data-name="&gt;"
                         transform="translate(0 100)"
                         fill={color}
-                        font-size="100"
-                        font-family="Monaco"
+                        fontSize="100"
+                        fontFamily="Monaco"
                     >
                         <tspan x="0" y="0">
                             &gt;
@@ -81,8 +81,8 @@ const PortfolioLogo = (props: SvgIconProps) => {
                         data-name="&lt;"
                         transform="translate(0 100)"
                         fill={color}
-                        font-size="100"
-                        font-family="Monaco"
+                        fontSize="100"
+                        fontFamily="Monaco"
                     >
                         <tspan x="0" y="0">
                             &lt;
