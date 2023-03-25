@@ -88,7 +88,7 @@ const ThemeProvider = ({ children }: WithChildrenProp) => {
             {children}
             <AnimatePresence>
                 {!isAnimationFinished && (
-                    <Box position="absolute" top={0} zIndex={999}>
+                    <Box position="absolute" top={0} zIndex={2000}>
                         <motion.div
                             key={"spinner"}
                             initial={{ opacity: 1 }}
