@@ -40,7 +40,7 @@ const ProjectId = () => {
     const { projectId = "" } = useParams();
     const { isWeb, isMobile } = useWebsiteBreakpoints();
 
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(true);
 
     const project = getProjectById(projectId);
 

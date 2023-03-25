@@ -58,7 +58,6 @@ const DrawerMenu = (props: DrawerMenuProps) => {
                 </Box>
             </Flex>
             <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-                <DrawerOverlay />
                 <DrawerContent
                     backgroundColor="sideBar.background"
                     color="sideBar.foreground"
