@@ -6,7 +6,7 @@ const LinkedIn = (props: SvgIconProps) => {
     return (
         <svg
             fill={color}
-            height={size}
+            height="auto"
             width={size}
             version="1.1"
             id="Layer_1"

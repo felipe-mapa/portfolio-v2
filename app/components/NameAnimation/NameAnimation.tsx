@@ -1,7 +1,11 @@
 import { Box } from "@chakra-ui/react";
 
-const NameAnimation = () => (
-    <Box height="auto" width="60%" marginBottom="100px">
+interface NameAnimationProps {
+    width?: string | number;
+}
+
+const NameAnimation = ({ width = "100%" }: NameAnimationProps) => (
+    <Box height="auto" width={width} marginBottom="100px">
         <svg
             id="animatedName"
             xmlns="http://www.w3.org/2000/svg"

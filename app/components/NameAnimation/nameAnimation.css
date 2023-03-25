@@ -2,10 +2,6 @@ body {
   margin: 0;
 }
 
-#animatedName {
-  background-color: "red";
-}
-
 @keyframes curse_name {
   100% {
     stroke-dashoffset: 0;

@@ -61,6 +61,8 @@ const DrawerMenu = (props: DrawerMenuProps) => {
                 <DrawerContent
                     backgroundColor="sideBar.background"
                     color="sideBar.foreground"
+                    borderLeftWidth={2}
+                    borderLeftColor="activityBar.activeBorder"
                 >
                     <DrawerCloseButton />
                     <DrawerHeader></DrawerHeader>

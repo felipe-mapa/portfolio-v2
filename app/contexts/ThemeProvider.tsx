@@ -1,10 +1,11 @@
 import { useTimeout } from "usehooks-ts";
-import { Box, Flex, Spinner } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState, useEffect, useContext } from "react";
 
 import themes from "~/theme/themes";
 import { NameAnimation } from "~/components/NameAnimation/NameAnimation";
+import { useWebsiteBreakpoints } from "~/hooks/useWebsiteBreakpoints";
 
 import type { ExtendedTheme, ThemeName } from "~/theme/themes";
 import type { WithChildrenProp } from "~/models/types";
@@ -19,13 +20,13 @@ interface ThemeState {
     name: ThemeName;
 }
 
-const defaultTheme: ThemeState = {
+const defaultState: ThemeState = {
     value: themes.darkV1,
     name: "darkV1",
 };
 
-const defaultContextValue: ThemeContextValue = {
-    theme: defaultTheme,
+const defaultTheme: ThemeContextValue = {
+    theme: defaultState,
     updateTheme: () => {},
 };
 
@@ -41,12 +42,12 @@ const BackgroundBase = ({ children }: WithChildrenProp) => (
     </Flex>
 );
 
-const ThemeContext =
-    React.createContext<ThemeContextValue>(defaultContextValue);
+const ThemeContext = React.createContext<ThemeContextValue>(defaultTheme);
 
 const ThemeProvider = ({ children }: WithChildrenProp) => {
-    const [theme, setTheme] = useState<ThemeState | null>(null);
+    const [theme, setTheme] = useState<ThemeState>(defaultState);
     const [isAnimationFinished, setIsAnimationFinished] = useState(false);
+    const { isWeb } = useWebsiteBreakpoints();
 
     const updateTheme = (themeName: ThemeName) => {
         setTheme({
@@ -58,10 +59,7 @@ const ThemeProvider = ({ children }: WithChildrenProp) => {
     useEffect(() => {
         const localStorage = window.localStorage;
 
-        if (!localStorage) {
-            setTheme(defaultTheme);
-            return;
-        }
+        if (!localStorage) return;
 
         const savedTheme = localStorage.getItem(
             "globalTheme"
@@ -76,9 +74,6 @@ const ThemeProvider = ({ children }: WithChildrenProp) => {
     }, []);
 
     useEffect(() => {
-        if (!theme) {
-            return;
-        }
         const localStorage = window.localStorage;
 
         if (!localStorage) return;
@@ -87,14 +82,6 @@ const ThemeProvider = ({ children }: WithChildrenProp) => {
     }, [theme]);
 
     useTimeout(() => setIsAnimationFinished(true), 2400);
-
-    if (!theme) {
-        return (
-            <BackgroundBase>
-                <Spinner size="xl" />
-            </BackgroundBase>
-        );
-    }
 
     return (
         <ThemeContext.Provider value={{ theme, updateTheme }}>
@@ -109,7 +96,7 @@ const ThemeProvider = ({ children }: WithChildrenProp) => {
                             transition={{ duration: 0.3, ease: "easeIn" }}
                         >
                             <BackgroundBase>
-                                <NameAnimation />
+                                <NameAnimation width={isWeb ? "60%" : "80%"} />
                             </BackgroundBase>
                         </motion.div>
                     </Box>
