@@ -19,11 +19,13 @@ interface ThemeState {
     name: ThemeName;
 }
 
-const defaultTheme: ThemeContextValue = {
-    theme: {
-        value: themes.darkV1,
-        name: "darkV1",
-    },
+const defaultTheme: ThemeState = {
+    value: themes.darkV1,
+    name: "darkV1",
+};
+
+const defaultContextValue: ThemeContextValue = {
+    theme: defaultTheme,
     updateTheme: () => {},
 };
 
@@ -39,7 +41,8 @@ const BackgroundBase = ({ children }: WithChildrenProp) => (
     </Flex>
 );
 
-const ThemeContext = React.createContext<ThemeContextValue>(defaultTheme);
+const ThemeContext =
+    React.createContext<ThemeContextValue>(defaultContextValue);
 
 const ThemeProvider = ({ children }: WithChildrenProp) => {
     const [theme, setTheme] = useState<ThemeState | null>(null);
@@ -55,7 +58,10 @@ const ThemeProvider = ({ children }: WithChildrenProp) => {
     useEffect(() => {
         const localStorage = window.localStorage;
 
-        if (!localStorage) return;
+        if (!localStorage) {
+            setTheme(defaultTheme);
+            return;
+        }
 
         const savedTheme = localStorage.getItem(
             "globalTheme"
