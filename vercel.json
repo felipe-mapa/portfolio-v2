@@ -1,0 +1,9 @@
+{
+    "rewrites": [
+        {
+            "source": "https://apis.pavanela.com/:path*",
+            "destination": "https://felipepavanela78601.ipage.com/apis/:path*"
+        },
+        { "source": "/(.*)", "destination": "/" }
+    ]
+}
