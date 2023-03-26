@@ -51,7 +51,7 @@ const projects: Project[] = [
             "An interactive application created for StatsNZ competition to visualise New Zealanders' commute information from the 2018 census. It displays the information through different types of graphs (Victory), table (material-table) and on a map (D3 and react-simple-maps). The data is saved in a MySQL database, requested with axios and PHP and managed with Redux. The design was built with MaterialUI.",
         iconImage: CommuteIcon,
         thumbnailImage: CommuteThumbnail,
-        linkUrl: "https://www.pavanela.com/commuter-view/",
+        linkUrl: "https://felipepavanela78601.ipage.com/commuter-view/",
     },
     {
         type: "mobile",
