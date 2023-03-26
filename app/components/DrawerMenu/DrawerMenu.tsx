@@ -5,7 +5,6 @@ import {
     DrawerCloseButton,
     DrawerContent,
     DrawerHeader,
-    DrawerOverlay,
     Flex,
     Text,
 } from "@chakra-ui/react";
@@ -26,13 +25,19 @@ interface DrawerMenuProps extends WithChildrenProp {
 
 const year = new Date().getFullYear();
 
+const menuHeight = "52px";
+
 const DrawerMenu = (props: DrawerMenuProps) => {
     const { title, isOpen, children, onClose, onOpen } = props;
 
     return (
         <>
+            <Box height={menuHeight} />
             <Flex
+                height={menuHeight}
                 zIndex={2}
+                position="fixed"
+                width="100%"
                 justifyContent="space-between"
                 backgroundColor="sideBar.background"
                 px={5}

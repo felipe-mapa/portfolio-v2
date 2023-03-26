@@ -52,7 +52,7 @@ const Document = ({ children }: WithChildrenProp) => {
                 <Meta />
                 <Links />
             </head>
-            <body style={{ overflow: "hidden" }}>
+            <body>
                 <ThemeProvider>{children}</ThemeProvider>
                 <ScrollRestoration />
                 <Scripts />
