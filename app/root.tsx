@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { Box, ChakraProvider, Flex } from "@chakra-ui/react";
 import {
     Links,
@@ -12,6 +13,7 @@ import {
     FOOTER_HEIGHT,
     FOOTER_MOBILE_HEIGHT,
 } from "./components/Footer/Footer";
+
 import { ActivityBar } from "./components/ActivityBar/ActivityBar";
 import { ThemeProvider, useThemeContext } from "./contexts/ThemeProvider";
 
@@ -90,6 +92,7 @@ const App = () => {
                     <Footer />
                 </Box>
             </WithTheme>
+            <Analytics />
         </Document>
     );
 };
