@@ -24,7 +24,7 @@ const ThemeMenu = () => {
         <Menu closeOnSelect>
             <MenuButton
                 as={Button}
-                position="absolute"
+                position="fixed"
                 height="14"
                 width="14"
                 right="20px"

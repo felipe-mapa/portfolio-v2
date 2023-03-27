@@ -51,7 +51,7 @@ const Index = () => {
     const { isWeb } = useWebsiteBreakpoints();
 
     return (
-        <Flex width="100%">
+        <Flex width="100%" overflow="hidden">
             <TabSystemProvider>
                 {isWeb && <CollapsibleItemsContainer />}
                 <Flex width="100%" height="100%" direction="column">
