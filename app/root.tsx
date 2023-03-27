@@ -16,6 +16,7 @@ import { ActivityBar } from "./components/ActivityBar/ActivityBar";
 import { ThemeProvider, useThemeContext } from "./contexts/ThemeProvider";
 
 import rootStyle from "./root.css";
+import { ThemeMenu } from "./components/Root/ThemeMenu";
 import { useWebsiteBreakpoints } from "./hooks/useWebsiteBreakpoints";
 import nameAnimationStyle from "./components/NameAnimation/nameAnimation.css";
 
@@ -63,7 +64,9 @@ const Document = ({ children }: WithChildrenProp) => {
 };
 
 const WithTheme = ({ children }: WithChildrenProp) => {
-    const { theme } = useThemeContext();
+    const { theme, isLoadingPrevTheme } = useThemeContext();
+
+    if (isLoadingPrevTheme) return null;
 
     return <ChakraProvider theme={theme.value}>{children}</ChakraProvider>;
 };
@@ -82,6 +85,7 @@ const App = () => {
                     <Flex height={height}>
                         {!isMobile && <ActivityBar />}
                         <Outlet />
+                        <ThemeMenu />
                     </Flex>
                     <Footer />
                 </Box>

@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useParams } from "@remix-run/react";
+import { Flex, Image, Text } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Flex, Image, Text } from "@chakra-ui/react";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 import { SideBar } from "~/components/Projects/SideBar";
 import { getProjectById, projects } from "~/data/projects";
 import { DrawerMenu } from "~/components/DrawerMenu/DrawerMenu";
 import { ProjectItem } from "~/components/Projects/ProjectItem";
+import { PrimaryButton } from "~/components/Buttons/PrimaryButton";
 import { useWebsiteBreakpoints } from "~/hooks/useWebsiteBreakpoints";
 
 import { GitHub } from "~/components/Icons/GitHub";
@@ -23,8 +24,7 @@ const ProjectButtonLink = ({ url, title }: ProjectButtonLinkProps) => {
     }
 
     return (
-        <Button
-            boxShadow="md"
+        <PrimaryButton
             as="a"
             me={5}
             target="_blank"
@@ -32,7 +32,7 @@ const ProjectButtonLink = ({ url, title }: ProjectButtonLinkProps) => {
             rightIcon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
         >
             {title}
-        </Button>
+        </PrimaryButton>
     );
 };
 
@@ -91,22 +91,21 @@ const ProjectId = () => {
                             py={2}
                             fontSize={40}
                             lineHeight={1.1}
-                            color={"white"}
+                            color="editor.foreground"
                             textAlign={isMobile ? "center" : "start"}
                         >
                             {project.name}
                         </Text>
                         <Flex mt={2}>
                             {project.githubUrl && (
-                                <Button
-                                    boxShadow="md"
+                                <PrimaryButton
                                     as="a"
                                     me={5}
                                     target="_blank"
                                     href={project.githubUrl}
                                 >
-                                    <GitHub size={25} color="#000000" />
-                                </Button>
+                                    <GitHub size={25} />
+                                </PrimaryButton>
                             )}
                             {project.type === "web" ? (
                                 <ProjectButtonLink
@@ -130,7 +129,7 @@ const ProjectId = () => {
                         </Flex>
                     </Flex>
                 </Flex>
-                <Text mt={5} color={"white"}>
+                <Text mt={5} color="editor.foreground">
                     {project.description}
                 </Text>
             </Flex>

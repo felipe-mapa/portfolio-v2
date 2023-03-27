@@ -9,12 +9,16 @@ import {
     Text,
 } from "@chakra-ui/react";
 import { NavLink } from "@remix-run/react";
+import { useWindowSize } from "usehooks-ts";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import type { WithChildrenProp } from "~/models/types";
-import { PortfolioLogo } from "../Icons/PortfolioLogo";
 import { SocialLinks } from "./SocialLinks";
+import { PortfolioLogo } from "../Icons/PortfolioLogo";
+import { ACTIVITY_BAR_WIDTH } from "../ActivityBar/ActivityBar";
+import { useWebsiteBreakpoints } from "~/hooks/useWebsiteBreakpoints";
+
+import type { WithChildrenProp } from "~/models/types";
 
 interface DrawerMenuProps extends WithChildrenProp {
     title?: string;
@@ -30,6 +34,13 @@ const menuHeight = "52px";
 const DrawerMenu = (props: DrawerMenuProps) => {
     const { title, isOpen, children, onClose, onOpen } = props;
 
+    const { width: windowWidth } = useWindowSize();
+    const { isMobile } = useWebsiteBreakpoints();
+
+    const width = isMobile
+        ? windowWidth
+        : `calc(${windowWidth}px - ${ACTIVITY_BAR_WIDTH})`;
+
     return (
         <>
             <Box height={menuHeight} />
@@ -37,7 +48,7 @@ const DrawerMenu = (props: DrawerMenuProps) => {
                 height={menuHeight}
                 zIndex={2}
                 position="fixed"
-                width="100%"
+                width={width}
                 justifyContent="space-between"
                 backgroundColor="sideBar.background"
                 px={5}
@@ -47,18 +58,10 @@ const DrawerMenu = (props: DrawerMenuProps) => {
                     <PortfolioLogo size={60} />
                 </NavLink>
                 <Box as="button" onClick={onOpen}>
-                    <Flex alignItems="center">
-                        {title && (
-                            <Text color="white" mr={2}>
-                                {title}
-                            </Text>
-                        )}
+                    <Flex alignItems="center" color="sideBar.foreground">
+                        {title && <Text mr={2}>{title}</Text>}
 
-                        <FontAwesomeIcon
-                            icon={faBars}
-                            size="lg"
-                            color="white"
-                        />
+                        <FontAwesomeIcon icon={faBars} size="lg" />
                     </Flex>
                 </Box>
             </Flex>
@@ -67,7 +70,7 @@ const DrawerMenu = (props: DrawerMenuProps) => {
                     backgroundColor="sideBar.background"
                     color="sideBar.foreground"
                     borderLeftWidth={2}
-                    borderLeftColor="activityBar.activeBorder"
+                    borderLeftColor="sideBar.foreground"
                 >
                     <DrawerCloseButton />
                     <DrawerHeader></DrawerHeader>

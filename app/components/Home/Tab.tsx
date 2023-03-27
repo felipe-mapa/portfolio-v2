@@ -82,7 +82,7 @@ const Tab = ({ projectFile }: TabProps) => {
                     _hover={{
                         opacity: 1,
                         color: "tab.activeForeground",
-                        backgroundColor: "tab.inactiveForeground",
+                        backgroundColor: "activityBar.inactiveForeground",
                     }}
                 />
             </Flex>

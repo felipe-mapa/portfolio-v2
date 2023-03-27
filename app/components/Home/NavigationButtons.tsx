@@ -1,9 +1,10 @@
 import { flatten } from "lodash";
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { projectTree } from "~/models/constants";
+import { PrimaryButton } from "../Buttons/PrimaryButton";
 import { useTabSystemContext } from "~/contexts/TabSystemProvider";
 
 import type { ProjectItem } from "~/models/types";
@@ -67,23 +68,21 @@ const NavigationButtons = () => {
             </Text>
             <Flex mt={5}>
                 {previousPageId && (
-                    <Button
-                        boxShadow="md"
-                        onClick={onOpenPreviousPage}
+                    <PrimaryButton
                         me={5}
+                        onClick={onOpenPreviousPage}
                         leftIcon={<FontAwesomeIcon icon={faArrowLeft} />}
                     >
                         Previous Page
-                    </Button>
+                    </PrimaryButton>
                 )}
                 {nextPageId && (
-                    <Button
-                        boxShadow="md"
+                    <PrimaryButton
                         onClick={onOpenNextPage}
                         rightIcon={<FontAwesomeIcon icon={faArrowRight} />}
                     >
                         Next Page
-                    </Button>
+                    </PrimaryButton>
                 )}
             </Flex>
         </Flex>

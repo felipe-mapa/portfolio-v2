@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Image } from "@chakra-ui/react";
+import { Box, Button, Flex } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
@@ -6,31 +6,34 @@ import { getProjectById } from "~/data/projects";
 import { Tag } from "~/components/CodeElements/Tag";
 import { ReactFile } from "../../CodeElements/ReactFile";
 
-import type { WithChildrenProp } from "~/models/types";
 import { NavLink } from "@remix-run/react";
+import { ImageWithSkeleton } from "~/components/ImageWithSkeleton";
 
-const imageProps = {
-    height: 200,
-    width: 200,
-};
-
-interface BoxContainerProps extends WithChildrenProp {
+interface ProjectImageProps {
     projectId: string;
+    thumbnailImage: string;
 }
 
-const BoxContainer = ({ children, projectId }: BoxContainerProps) => (
-    <NavLink to={`/projects/${projectId}`}>
-        <Box
-            m={2}
-            transition="all"
-            _hover={{
-                translate: "1px -1px",
-            }}
-        >
-            {children}
-        </Box>
-    </NavLink>
-);
+const ProjectImage = ({ projectId, thumbnailImage }: ProjectImageProps) => {
+    return (
+        <NavLink to={`/projects/${projectId}`}>
+            <Box
+                m={2}
+                transition="all"
+                _hover={{
+                    translate: "1px -1px",
+                }}
+            >
+                <ImageWithSkeleton
+                    height={200}
+                    width={200}
+                    src={thumbnailImage}
+                    borderRadius="lg"
+                />
+            </Box>
+        </NavLink>
+    );
+};
 
 const projectIds = ["dartboard-scorer", "commute-visualiser", "flag-finder"];
 
@@ -55,16 +58,11 @@ const ProjectsFile = () => {
                             }
 
                             return (
-                                <BoxContainer
+                                <ProjectImage
                                     key={project.id}
                                     projectId={project.id}
-                                >
-                                    <Image
-                                        borderRadius="lg"
-                                        {...imageProps}
-                                        src={project.thumbnailImage}
-                                    />
-                                </BoxContainer>
+                                    thumbnailImage={project.thumbnailImage}
+                                />
                             );
                         })}
                     </Flex>

@@ -11,6 +11,7 @@ import type { ExtendedTheme, ThemeName } from "~/theme/themes";
 import type { WithChildrenProp } from "~/models/types";
 
 interface ThemeContextValue {
+    isLoadingPrevTheme: boolean;
     theme: ThemeState;
     updateTheme: (themeName: ThemeName) => void;
 }
@@ -26,6 +27,7 @@ const defaultState: ThemeState = {
 };
 
 const defaultTheme: ThemeContextValue = {
+    isLoadingPrevTheme: true,
     theme: defaultState,
     updateTheme: () => {},
 };
@@ -46,6 +48,7 @@ const ThemeContext = React.createContext<ThemeContextValue>(defaultTheme);
 
 const ThemeProvider = ({ children }: WithChildrenProp) => {
     const [theme, setTheme] = useState<ThemeState>(defaultState);
+    const [isLoadingPrevTheme, setIsLoadingPrevTheme] = useState(true);
     const [isAnimationFinished, setIsAnimationFinished] = useState(false);
     const { isWeb } = useWebsiteBreakpoints();
 
@@ -57,6 +60,8 @@ const ThemeProvider = ({ children }: WithChildrenProp) => {
     };
 
     useEffect(() => {
+        setIsLoadingPrevTheme(false);
+
         const localStorage = window.localStorage;
 
         if (!localStorage) return;
@@ -76,15 +81,17 @@ const ThemeProvider = ({ children }: WithChildrenProp) => {
     useEffect(() => {
         const localStorage = window.localStorage;
 
-        if (!localStorage) return;
+        if (!localStorage || !theme || isLoadingPrevTheme) return;
 
         localStorage?.setItem("globalTheme", theme.name);
-    }, [theme]);
+    }, [theme, isLoadingPrevTheme]);
 
     useTimeout(() => setIsAnimationFinished(true), 2400);
 
     return (
-        <ThemeContext.Provider value={{ theme, updateTheme }}>
+        <ThemeContext.Provider
+            value={{ theme, isLoadingPrevTheme, updateTheme }}
+        >
             {children}
             <AnimatePresence>
                 {!isAnimationFinished && (

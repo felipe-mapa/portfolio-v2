@@ -4,10 +4,12 @@ import { NavItem } from "./NavItem";
 import { menuItems } from "~/models/constants";
 import { SocialLinks } from "../DrawerMenu/SocialLinks";
 
+export const ACTIVITY_BAR_WIDTH = "5rem";
+
 const ActivityBar = () => {
     return (
         <Flex
-            width="20"
+            width={ACTIVITY_BAR_WIDTH}
             backgroundColor="activityBar.background"
             direction="column"
             justifyContent="space-between"

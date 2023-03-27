@@ -1,6 +1,7 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 
 import { getTagStartMargin } from "./Tag";
+import { ImageWithSkeleton } from "../ImageWithSkeleton";
 import { useWebsiteBreakpoints } from "~/hooks/useWebsiteBreakpoints";
 
 interface TagProps {
@@ -30,11 +31,11 @@ const ImageTag = (props: TagProps) => {
                     "
                 </Box>
             </Text>
-            <Image
+            <ImageWithSkeleton
                 src={imageSource}
                 width={imageSize}
                 height={imageSize}
-                rounded="full"
+                borderRadius="full"
             />
             <Text color="file.tagPunctuation">
                 <Box as="span" color="file.string">

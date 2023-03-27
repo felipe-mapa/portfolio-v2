@@ -1,5 +1,7 @@
-import { Flex, Image, Text } from "@chakra-ui/react";
 import { NavLink } from "@remix-run/react";
+import { Flex, Text } from "@chakra-ui/react";
+
+import { ImageWithSkeleton } from "../ImageWithSkeleton";
 
 import type { Project } from "~/data/projects";
 
@@ -37,9 +39,9 @@ const ProjectItem = ({
                     isSelected ? "sideBar.activeItemBackground" : "transparent"
                 }
             >
-                <Image
+                <ImageWithSkeleton
                     src={project.iconImage}
-                    borderRadius={"lg"}
+                    borderRadius="lg"
                     width="14"
                     height="14"
                 />

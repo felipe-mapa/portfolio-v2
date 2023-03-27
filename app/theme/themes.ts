@@ -53,6 +53,11 @@ interface CostumeColors {
             color3: string;
         };
     };
+    button: {
+        background: string;
+        foreground: string;
+    };
+    maskImageOpacity: string;
 }
 
 const baseExtension = {
@@ -118,6 +123,11 @@ const darkV1Colors: CostumeColors = {
             color3: "#569CD6",
         },
     },
+    button: {
+        background: theme.colors.gray[100],
+        foreground: "#000000",
+    },
+    maskImageOpacity: "0.5",
 };
 
 const darkV1: ExtendedTheme = extendTheme({
@@ -129,14 +139,58 @@ const darkV1: ExtendedTheme = extendTheme({
 });
 
 const lightV1Colors: CostumeColors = {
-    mainBackgroundColor: theme.colors.gray[100],
-    navBackgroundColor: theme.colors.gray[500],
-    projectFilesBackgroundColor: theme.colors.gray[800],
-    projectFilesTextColor: "#FFFFFF",
-    projectFilesArrowColor: "#676767",
-    navTextColor: "#676767",
-    navSelectedBackgroundColor: "#3E3E3E",
-    navSelectedTextColor: "#FFFFFF",
+    // Nav themes
+    activityBar: {
+        background: "#3E3E3E",
+        activeBorder: "#FFFFFF",
+        activeBackground: "#1E1E1E",
+        inactiveForeground: "#919191",
+        foreground: "#FFFFFF",
+    },
+    // Editor
+    editor: {
+        background: "#FFFFFF",
+        foreground: "#1E1E1E",
+    },
+    sideBar: {
+        background: "#EEEEEE",
+        iconForeground: "#919191",
+        foreground: "#000000",
+        activeItemBackground: "#CCCCCC",
+    },
+    editorGroupHeader: {
+        tabsBackground: "#EEEEEE",
+    },
+    tab: {
+        activeBackground: "#FFFFFF",
+        inactiveBackground: "#CCCCCC",
+        activeForeground: "#000000",
+        inactiveForeground: "#333333",
+    },
+    file: {
+        comment: "#008000",
+        keyword: "#AF00DB",
+        function: "#795E26",
+        tagName: "#001080",
+        tagPunctuation: "#808080",
+        variable: "#0070C1",
+        imported: "#001080",
+        string: "#A31515",
+        declaration: "#001080",
+        attribute: "#593b3b",
+        component: "#7A3E9D",
+        type: "#4EC9B0",
+        bracket: {
+            color1: "#001080",
+            color2: "#008000",
+            color3: "#AF00DB",
+        },
+    },
+    button: {
+        background: "#000000",
+        foreground: theme.colors.gray[100],
+    },
+    maskImageOpacity: "0.2",
 };
 
 const lightV1: ExtendedTheme = extendTheme({

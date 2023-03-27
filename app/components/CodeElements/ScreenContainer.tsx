@@ -7,6 +7,7 @@ import {
     useState,
 } from "react";
 import { Box, Text } from "@chakra-ui/react";
+import { useThemeContext } from "~/contexts/ThemeProvider";
 import { useWebsiteBreakpoints } from "~/hooks/useWebsiteBreakpoints";
 
 import type { MouseEvent } from "react";
@@ -23,6 +24,8 @@ const ScreenContainer = ({ children }: WithChildrenProp) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [maskPosition, setMaskPosition] = useState("");
     const [containerSize, setContainerSize] = useState({ height: 0, width: 0 });
+
+    const { theme } = useThemeContext();
 
     const onMouseMove = (e: MouseEvent<HTMLDivElement>) => {
         if (isMobile) {
@@ -70,12 +73,16 @@ const ScreenContainer = ({ children }: WithChildrenProp) => {
             return {};
         }
 
+        const isLightMode = theme.name.includes("light");
+
+        const opacity = isLightMode ? 0.7 : 0.5;
+
         return {
             WebkitMaskPosition: maskPosition,
             WebkitMaskSize: `${containerSize.width}px ${containerSize.height}px`,
-            WebkitMaskImage: `radial-gradient(circle, rgba(0, 0, 0, 0.5) 10px, rgba(0, 0, 0, 1) ${BLUR_SIZE}px)`,
+            WebkitMaskImage: `radial-gradient(circle, rgba(0, 0, 0, ${opacity}) 10px, rgba(0, 0, 0, 1) ${BLUR_SIZE}px)`,
         };
-    }, [containerSize.height, containerSize.width, maskPosition]);
+    }, [containerSize.height, containerSize.width, maskPosition, theme]);
 
     const ref = useRef<HTMLDivElement>(null);
 

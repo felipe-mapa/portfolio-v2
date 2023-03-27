@@ -1,7 +1,6 @@
 import { Box, Flex, Stack, Text, theme, Tooltip } from "@chakra-ui/react";
 import { faBug, faCodeBranch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useThemeContext } from "~/contexts/ThemeProvider";
 import { MobileFooter } from "./MobileFooter";
 import { useWebsiteBreakpoints } from "~/hooks/useWebsiteBreakpoints";
 
@@ -11,7 +10,6 @@ export const FOOTER_MOBILE_HEIGHT = "55px";
 const year = new Date().getFullYear();
 
 const Footer = () => {
-    const { updateTheme } = useThemeContext();
     const { isMobile } = useWebsiteBreakpoints();
 
     return (
@@ -45,20 +43,6 @@ const Footer = () => {
                             <FontAwesomeIcon icon={faCodeBranch} />
                             <Text ps={2}>main</Text>
                         </Flex>
-                        {/* <Button
-                        onClick={() => updateTheme("darkV1")}
-                        colorScheme="teal"
-                        size="xs"
-                    >
-                        DARK
-                    </Button>
-                    <Button
-                        onClick={() => updateTheme("lightV1")}
-                        colorScheme="red"
-                        size="xs"
-                    >
-                        LIGHT
-                    </Button> */}
                     </Stack>
                     <Text textAlign="end" px={2} color="white" fontSize={14}>
                         © Felipe Pavanela {year}
