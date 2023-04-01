@@ -28,7 +28,13 @@ import type { WithChildrenProp } from "./models/types";
 export const meta: MetaFunction = () => ({
     charset: "utf-8",
     title: "Felipe Pavanela | Portfolio",
+    description: "Full Stack Software Engineer",
     viewport: "width=device-width,initial-scale=1",
+    "og:title": "Felipe Pavanela | Portfolio",
+    "og:image": "https://www.pavanela.com/assets/images/eg-image.png",
+    "og:description": "Full Stack Software Engineer",
+    "og:url": "https://www.pavanela.com",
+    "og:type": "website",
 });
 
 export const links = () => {
