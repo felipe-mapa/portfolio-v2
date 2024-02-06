@@ -6,7 +6,7 @@ const GitHub = (props: SvgIconProps) => {
     return (
         <svg
             width={size}
-            height="auto"
+            height={size}
             viewBox={`0 0 1024 1024`}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

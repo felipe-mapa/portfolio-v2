@@ -4,13 +4,14 @@ const PortfolioLogo = (props: SvgIconProps) => {
     const { color = "#3182ce", size = 267 } = props;
 
     const width = size;
+    const height = (width * 125) / 267;
 
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             width={width}
-            height="auto"
+            height={height}
             viewBox="0 0 267 125"
         >
             <g
